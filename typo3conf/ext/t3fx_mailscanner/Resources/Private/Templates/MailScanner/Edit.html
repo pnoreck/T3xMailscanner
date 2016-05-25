@@ -8,8 +8,9 @@
 
 <f:render partial="FormErrors" arguments="{object:Sender}" />
 
-<f:form action="update" name="sender" object="{sender}" >
-<f:render partial="Sender/FormFields" arguments="{_all}" />
+<f:form action="update" objectName="sender" object="{sender}" method="post" >
+	<f:render partial="Sender/FormFields" arguments="{_all}" />
 	<f:form.submit value="Save" />
 </f:form>
+
 </f:section>

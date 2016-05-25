@@ -31,6 +31,32 @@ namespace T3fx\T3fxMailscanner\Domain\Repository;
  */
 class SenderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+	/**
+	 * Find a sender by given email address
+	 *
+	 * @param string $email
+	 *
+	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
+	public function findSenderByEmail($email) {
+		$query = $this->createQuery();
+		return $query->matching(
+			$query->equals('name', $email)
+		)->execute();
+	}
 
+	/**
+	 * Find all sender by given imap folder
+	 *
+	 * @param int $folderUid
+	 *
+	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
+	public function findSenderByFolder($folderUid) {
+		$query = $this->createQuery();
+		return $query->matching(
+			$query->equals('imap_folder', $folderUid)
+		)->execute();
+	}
     
 }

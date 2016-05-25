@@ -18,6 +18,9 @@
 			<trans-unit id="tx_t3fxmailscanner_domain_model_imapfolder.name">
 				<source>Name</source>
 			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.email">
+				<source>Email</source>
+			</trans-unit>
 			<trans-unit id="tx_t3fxmailscanner_domain_model_sender">
 				<source>Sender</source>
 			</trans-unit>

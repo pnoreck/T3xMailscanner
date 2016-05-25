@@ -1,26 +1,15 @@
 
 <f:layout name="Default" />
 
-This template displays a NEW form for the current domain object.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        New.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-<h1>New MailScanner</h1>
+<h1>Neuer Absender</h1>
 
 <f:flashMessages />
 
-<f:render partial="FormErrors" arguments="{object:MailScanner}" />
+<f:render partial="FormErrors" arguments="{object:Sender}" />
 
-<f:form action="create"  name="newMailScanner" object="{newMailScanner}">
-<f:render partial="MailScanner/FormFields" />
+<f:form action="create" objectName="newSender" object="{newSender}">
+<f:render partial="Sender/FormFields" arguments="{_all}"/>
 	<f:form.submit value="Create new" />
 </f:form>
 </f:section>

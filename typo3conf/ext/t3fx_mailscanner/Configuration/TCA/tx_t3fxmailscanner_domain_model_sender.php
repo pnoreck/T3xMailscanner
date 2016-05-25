@@ -131,8 +131,6 @@ return array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_t3fxmailscanner_domain_model_imapfolder',
-				'minitems' => 0,
-				'maxitems' => 1,
 			),
 		),
 		
