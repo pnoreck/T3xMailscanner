@@ -1,0 +1,7 @@
+<ul>
+    <f:if condition="{showAllLink} == true"><li><f:link.action action="list">All</f:link.action></li></f:if>
+    <li><f:link.action action="listByFolder" arguments="{folderUid : 0}">Unassigned</f:link.action></li>
+    <f:for each="{folders}" as="folder">
+        <li><f:link.action action="listByFolder" arguments="{folderUid : folder.uid}">{folder.name}</f:link.action></li>
+    </f:for>
+</ul>

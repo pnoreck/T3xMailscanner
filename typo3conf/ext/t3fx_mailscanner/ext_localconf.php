@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'T3fx.' . $_EXTKEY,
 	'Mailscanner',
 	array(
-		'MailScanner' => 'list, edit, new, create, update, delete',
+		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',
 		
 	),
 	// non-cacheable actions
 	array(
-		'MailScanner' => 'list, edit, new, create, update, delete',
+		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',
 		
 	)
 );

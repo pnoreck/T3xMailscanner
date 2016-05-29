@@ -32,5 +32,23 @@ namespace T3fx\T3fxMailscanner\Domain\Repository;
 class ImapFolderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
+
+	public function findFolderWithSender() {
+		$query = $this->createQuery();
+		$query->statement(
+			'SELECT '.
+				'folder.* '.
+			'FROM '.
+				'tx_t3fxmailscanner_domain_model_imapfolder AS folder '.
+			'LEFT JOIN '.
+				'tx_t3fxmailscanner_domain_model_sender AS sender '.
+				'ON folder.uid = sender.imap_folder '.
+			'WHERE '.
+				'sender.uid > 0 '.
+			'GROUP BY folder.uid;'
+		);
+
+		return $query->execute();
+	}
     
 }

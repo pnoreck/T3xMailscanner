@@ -70,9 +70,24 @@ class MailScannerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     public function listAction()
     {
         $senders = $this->senderRepository->findAll();
-        // $senders = $this->senderRepository->findSenderByFolder(4);
+
+        $folder = $this->imapFolderRepository->findFolderWithSender();
+        $this->view->assign('folders', $folder);
 
         $this->view->assign('senders', $senders);
+    }
+
+    /**
+     * @param int $folderUid
+     */
+    public function listByFolderAction($folderUid) {
+        $senders = $this->senderRepository->findSenderByFolder($folderUid);
+
+        $folder = $this->imapFolderRepository->findFolderWithSender();
+        $this->view->assign('folders', $folder);
+
+        $this->view->assign('senders', $senders);
+
     }
     
     /**
