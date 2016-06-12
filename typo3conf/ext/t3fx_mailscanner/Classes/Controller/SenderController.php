@@ -30,8 +30,28 @@ namespace T3fx\T3fxMailscanner\Controller;
 /**
  * SenderController
  */
-class SenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class BlacklistController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+
+
+    /**
+     * senderRepository
+     *
+     * @var \T3fx\T3fxMailscanner\Domain\Repository\SenderRepository
+     * @inject
+     */
+    protected $senderRepository = NULL;
+
+
+
+    /**
+     * blacklistRepository
+     *
+     * @var \T3fx\T3fxMailscanner\Domain\Repository\BlacklistRepository
+     * @inject
+     */
+    protected $blacklistRepository = NULL;
+
 
     /**
      * action list

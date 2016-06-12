@@ -30,6 +30,12 @@
 			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.imap_folder">
 				<source>Imap Folder</source>
 			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.blacklist">
+				<source>Blacklist</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.whole_domain">
+				<source>whole domain</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

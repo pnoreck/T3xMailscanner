@@ -14,7 +14,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'full_name,name',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3fx_mailscanner') . 'Resources/Public/Icons/tx_t3fxmailscanner_domain_model_imapfolder.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3fx_mailscanner') . 'Resources/Public/Icons/tx_t3fxmailscanner_domain_model_blacklist.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden, full_name, name',
@@ -67,24 +67,31 @@ return array(
 			),
 		),
 
-		'full_name' => array(
+		'email' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_imapfolder.full_name',
+			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.full_name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'name' => array(
+		'domain' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_imapfolder.name',
+			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		
+		'complete_domain' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender.whole_domain',
+			'config' => array(
+				'type' => 'check',
+			),
+		),
+
 	),
 );
