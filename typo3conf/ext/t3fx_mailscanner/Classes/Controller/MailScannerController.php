@@ -56,7 +56,7 @@ class MailScannerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     protected $imapFolderRepository = NULL;
 
     /**
-     * blacklistRepository
+     * BlacklistRepository
      *
      * @var \T3fx\T3fxMailscanner\Domain\Repository\BlacklistRepository
      * @inject
@@ -153,13 +153,20 @@ class MailScannerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
         if($blacklist) {
             $mail = $sender->getName();
-            $mail = explode('@', $mail);
-
             $blocked = new Blacklist();
+            if($wholeDomain) {
+                $mail = explode('@', $mail);
+                $blocked->setDomain($mail[1]);
+                $blocked->setWholeDomain(true);
+            }
+            else {
+                $blocked->setMail($mail);
+            }
 
+            $this->blacklistRepository->add($blocked);
+            $this->senderRepository->remove($sender);
         }
-        var_dump($wholeDomain);
-        die();
+
         $this->addFlashMessage('Absender wurde aktualisiert', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
         $this->senderRepository->update($sender);
         $this->redirect('list');

@@ -67,7 +67,7 @@ return array(
 			),
 		),
 
-		'email' => array(
+		'mail' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.full_name',
 			'config' => array(

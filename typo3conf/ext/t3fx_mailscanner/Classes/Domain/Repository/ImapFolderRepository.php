@@ -44,7 +44,7 @@ class ImapFolderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 				'tx_t3fxmailscanner_domain_model_sender AS sender '.
 				'ON folder.uid = sender.imap_folder '.
 			'WHERE '.
-				'sender.uid > 0 '.
+				'sender.uid > 0 AND sender.hidden = 0 AND sender.deleted = 0 AND folder.hidden = 0 AND folder.deleted = 0 '.
 			'GROUP BY folder.uid;'
 		);
 
