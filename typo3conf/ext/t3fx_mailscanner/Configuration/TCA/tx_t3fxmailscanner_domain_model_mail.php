@@ -25,6 +25,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
+	
 
 		'hidden' => array(
 			'exclude' => 1,
@@ -33,6 +34,7 @@ return array(
 				'type' => 'check',
 			),
 		),
+
 		'starttime' => array(
 			'exclude' => 1,
 			'l10n_mode' => 'mergeIfNotBlank',
@@ -49,6 +51,7 @@ return array(
 				),
 			),
 		),
+
 		'endtime' => array(
 			'exclude' => 1,
 			'l10n_mode' => 'mergeIfNotBlank',
