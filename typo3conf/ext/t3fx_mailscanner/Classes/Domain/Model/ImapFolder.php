@@ -75,7 +75,7 @@ class ImapFolder extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getName()
     {
-        return $this->name;
+        return utf8_encode(imap_utf7_decode($this->name));
     }
     
     /**

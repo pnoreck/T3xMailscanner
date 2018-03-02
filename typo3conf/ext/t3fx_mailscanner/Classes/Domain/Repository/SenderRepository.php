@@ -58,5 +58,19 @@ class SenderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			$query->equals('imap_folder', $folderUid)
 		)->execute();
 	}
-    
+
+	/**
+	 * Find all senders with the same domain
+	 *
+	 * @param string $domain
+	 *
+	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
+	public function findSenderByDomain($domain) {
+		$query = $this->createQuery();
+		return $query->matching(
+			$query->like('name', '%@'.$domain)
+		)->execute();
+	}
+
 }

@@ -1,9 +1,11 @@
-/fileadmin
 /typo3conf/LocalConfiguration.php
 /typo3conf/PackageStates.php
 /typo3conf/realurl_autoconf.php
+/typo3conf/realurl_conf.php
 /.idea
 /typo3
 /index.php
+/fileadmin
+/typo3temp
+/uploads
 /vendor
-# Created by .ignore support plugin (hsz.mobi)
