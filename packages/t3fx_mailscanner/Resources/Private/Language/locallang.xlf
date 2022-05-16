@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-20T19:47:06Z" product-name="t3fx_mailscanner">
+		<header/>
+		<body>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_mailscanner">
+				<source>Mail Scanner</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_mailscanner.imap_folder">
+				<source>Imap Folder</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_imapfolder">
+				<source>Imap Folder</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_imapfolder.full_name">
+				<source>Full Name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_imapfolder.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender">
+				<source>Sender</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.imap_folder">
+				<source>Imap Folder</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.blacklist">
+				<source>Blacklist</source>
+			</trans-unit>
+			<trans-unit id="tx_t3fxmailscanner_domain_model_sender.whole_domain">
+				<source>whole domain</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

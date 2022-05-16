@@ -1,0 +1,45 @@
+
+plugin.tx_t3fxmailscanner_mailscanner {
+	view {
+		templateRootPaths.0 = {$plugin.tx_t3fxmailscanner_mailscanner.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_t3fxmailscanner_mailscanner.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_t3fxmailscanner_mailscanner.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_t3fxmailscanner_mailscanner.persistence.storagePid}
+	}
+}
+
+plugin.tx_t3fxmailscanner._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-t3fx-mailscanner table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-t3fx-mailscanner table th {
+		font-weight:bold;
+	}
+
+	.tx-t3fx-mailscanner table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)

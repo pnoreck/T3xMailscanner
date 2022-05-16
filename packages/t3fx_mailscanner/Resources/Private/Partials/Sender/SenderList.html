@@ -1,0 +1,21 @@
+<table  class="tx_t3fxmailscanner" >
+    <tr>
+        <th>Email</th>
+        <th>Move to folder</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+    </tr>
+
+    <f:for each="{senders}" as="sender">
+        <tr>
+            <td>{sender.name}</td>
+            <td>{sender.imapFolder.name}</td>
+            <td><f:link.action action="edit" arguments="{sender : sender}">Edit</f:link.action></td>
+            <td><f:link.action action="delete" arguments="{sender : sender}">Delete</f:link.action></td>
+            <td><f:link.action action="update" arguments="{sender : sender, blacklist : 1, wholeDomain : 1}">Blacklist</f:link.action></td>
+
+        </tr>
+    </f:for>
+
+</table>
