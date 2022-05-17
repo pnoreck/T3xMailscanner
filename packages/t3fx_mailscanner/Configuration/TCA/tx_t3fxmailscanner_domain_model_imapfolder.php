@@ -14,7 +14,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'full_name,name',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3fx_mailscanner') . 'Resources/Public/Icons/tx_t3fxmailscanner_domain_model_imapfolder.gif'
+		'iconfile' => 'EXT:t3fx_mailscanner/Resources/Public/Icons/tx_t3fxmailscanner_domain_model_imapfolder.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden, full_name, name',
@@ -26,7 +26,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-		
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -85,6 +85,6 @@ return array(
 				'eval' => 'trim'
 			),
 		),
-		
+
 	),
 );

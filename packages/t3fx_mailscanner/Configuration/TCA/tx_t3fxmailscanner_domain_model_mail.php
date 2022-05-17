@@ -13,7 +13,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,imap_folder,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3fx_mailscanner') . 'Resources/Public/Icons/tx_t3fxmailscanner_domain_model_sender.gif'
+		'iconfile' => 'EXT:t3fx_mailscanner/Resources/Public/Icons/tx_t3fxmailscanner_domain_model_sender.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden, name, imap_folder',
@@ -25,7 +25,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 
 		'hidden' => array(
 			'exclude' => 1,
@@ -78,7 +78,7 @@ return array(
 				'eval' => 'trim'
 			),
 		),
-		
+
 		'imap_folder' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender.imap_folder',
@@ -87,6 +87,6 @@ return array(
 				'foreign_table' => 'tx_t3fxmailscanner_domain_model_imapfolder',
 			),
 		),
-		
+
 	),
 );
