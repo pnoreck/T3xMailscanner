@@ -4,15 +4,15 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'T3fx.' . $_EXTKEY,
+	't3fx_mailscanner',
 	'Mailscanner',
 	array(
 		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',
-		
+
 	),
 	// non-cacheable actions
 	array(
 		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',
-		
+
 	)
 );
