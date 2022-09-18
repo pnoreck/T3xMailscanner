@@ -55,5 +55,8 @@
       "type": "path",
       "url": "packages/*"
     }
+  },
+  "require-dev": {
+    "t3docs/examples": "^11.1"
   }
 }
