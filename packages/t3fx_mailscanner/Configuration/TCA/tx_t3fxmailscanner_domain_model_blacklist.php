@@ -1,75 +1,43 @@
 <?php
 return array(
-    'ctrl'      => array(
-        'title'         => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_imapfolder',
-        'label'         => 'name',
-        'tstamp'        => 'tstamp',
-        'crdate'        => 'crdate',
-        'cruser_id'     => 'cruser_id',
-        'dividers2tabs' => true,
-        'delete'        => 'deleted',
-        'enablecolumns' => array(
-            'disabled'  => 'hidden',
-            'starttime' => 'starttime',
-            'endtime'   => 'endtime',
+    'ctrl'    => array(
+        'title'            => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist',
+        'label'            => 'mail',
+        'label_alt'        => 'domain',
+        'tstamp'           => 'tstamp',
+        'crdate'           => 'crdate',
+        'cruser_id'        => 'cruser_id',
+        'delete'           => 'deleted',
+        'enablecolumns'    => array(
+            'disabled' => 'hidden',
         ),
-        'searchFields'  => 'full_name,name',
-        'iconfile'      => 'EXT:t3fx_mailscanner/Resources/Public/Icons/tx_t3fxmailscanner_domain_model_blacklist.gif'
+        'searchFields'     => 'mail, domain, complete_domain',
+        'typeicon_classes' => [
+            'default' => 'tx_examples-dummy',
+        ],
     ),
-    'interface' => array(
-        'showRecordFieldList' => 'hidden, full_name, name',
+    'types'   => array(
+        '0' => array('showitem' => 'hidden, mail, domain, complete_domain'),
     ),
-    'types'     => array(
-        '1' => array('showitem' => 'hidden;;1, full_name, name, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-    ),
-    'palettes'  => array(
-        '1' => array('showitem' => ''),
-    ),
-    'columns'   => array(
-
-        'hidden'    => array(
-            'exclude' => 1,
-            'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config'  => array(
-                'type' => 'check',
-            ),
-        ),
-        'starttime' => array(
-            'exclude'   => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label'     => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config'    => array(
-                'type'     => 'input',
-                'size'     => 13,
-                'max'      => 20,
-                'eval'     => 'datetime',
-                'checkbox' => 0,
-                'default'  => 0,
-                'range'    => array(
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ),
-            ),
-        ),
-        'endtime'   => array(
-            'exclude'   => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label'     => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config'    => array(
-                'type'     => 'input',
-                'size'     => 13,
-                'max'      => 20,
-                'eval'     => 'datetime',
-                'checkbox' => 0,
-                'default'  => 0,
-                'range'    => array(
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ),
-            ),
-        ),
-
+    'columns' => array(
+        'hidden'          => [
+            'exclude' => true,
+            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'config'  => [
+                'type'       => 'check',
+                'renderType' => 'checkboxToggle',
+                'items'      => [
+                    [
+                        0                    => '',
+                        1                    => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
+        ],
         'mail'            => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.full_name',
+            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.mail',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,
@@ -78,7 +46,7 @@ return array(
         ),
         'domain'          => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.name',
+            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.domain',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,
@@ -87,7 +55,7 @@ return array(
         ),
         'complete_domain' => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender.whole_domain',
+            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_blacklist.complete_domain',
             'config'  => array(
                 'type' => 'check',
             ),
