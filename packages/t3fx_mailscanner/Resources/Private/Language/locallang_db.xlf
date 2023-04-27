@@ -49,6 +49,12 @@
             <trans-unit id="tx_t3fxmailscanner_domain_model_blacklist.complete_domain">
                 <source>Complete Domain</source>
             </trans-unit>
+            <trans-unit id="tx_t3fxmailscanner_domain_model_whitelist">
+                <source>Whitelist</source>
+            </trans-unit>
+            <trans-unit id="tx_t3fxmailscanner_domain_model_whitelist.name">
+                <source>Domain name</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

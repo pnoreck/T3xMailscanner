@@ -8,9 +8,7 @@ return array(
         'cruser_id'     => 'cruser_id',
         'delete'        => 'deleted',
         'enablecolumns' => array(
-            'disabled'  => 'hidden',
-            'starttime' => 'starttime',
-            'endtime'   => 'endtime',
+            'disabled' => 'hidden',
         ),
         'searchFields'  => 'name,imap_folder,',
         'iconfile'      => 'EXT:t3fx_mailscanner/Resources/Public/Icons/tx_t3fxmailscanner_domain_model_sender.gif'
@@ -26,45 +24,21 @@ return array(
     ),
     'columns'   => array(
 
-        'hidden'    => array(
-            'exclude' => 1,
-            'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config'  => array(
-                'type' => 'check',
-            ),
-        ),
-        'starttime' => array(
-            'exclude'   => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label'     => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config'    => array(
-                'type'     => 'input',
-                'size'     => 13,
-                'max'      => 20,
-                'eval'     => 'datetime',
-                'checkbox' => 0,
-                'default'  => 0,
-                'range'    => array(
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ),
-            ),
-        ),
-        'endtime'   => array(
-            'exclude'   => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label'     => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config'    => array(
-                'type'     => 'input',
-                'size'     => 13,
-                'max'      => 20,
-                'eval'     => 'datetime',
-                'checkbox' => 0,
-                'default'  => 0,
-                'range'    => array(
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ),
-            ),
-        ),
+        'hidden' => [
+            'exclude' => true,
+            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'config'  => [
+                'type'       => 'check',
+                'renderType' => 'checkboxToggle',
+                'items'      => [
+                    [
+                        0                    => '',
+                        1                    => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
+        ],
 
         'name' => array(
             'exclude' => 1,
@@ -80,8 +54,10 @@ return array(
             'exclude' => 1,
             'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender.imap_folder',
             'config'  => array(
-                'type'          => 'select',
-                'foreign_table' => 'tx_t3fxmailscanner_domain_model_imapfolder',
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_t3fxmailscanner_domain_model_imapfolder',
+                'foreign_table_where' => 'ORDER BY name ASC',
             ),
         ),
 
