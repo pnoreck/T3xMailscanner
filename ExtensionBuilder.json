@@ -174,7 +174,7 @@
     ],
     "properties": {
         "backendModules": [],
-        "description": "Configuration module for the T3fx Mail Scanner",
+        "description": "Configuration module for the T3x Mail Scanner",
         "emConf": {
             "category": "plugin",
             "custom_category": "",
@@ -187,7 +187,7 @@
             "targetVersion": "7.6.0-7.6.99",
             "version": "1.0.0"
         },
-        "extensionKey": "t3fx_mailscanner",
+        "extensionKey": "t3x_mailscanner",
         "name": "Mail Scanner",
         "originalExtensionKey": "",
         "originalVendorName": "",
@@ -210,7 +210,7 @@
                 "name": "Configuration"
             }
         ],
-        "vendorName": "T3fx"
+        "vendorName": "T3x"
     },
     "wires": [
         {

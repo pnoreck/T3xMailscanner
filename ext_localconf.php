@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	't3fx_mailscanner',
+	't3x_mailscanner',
 	'Mailscanner',
 	array(
 		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',

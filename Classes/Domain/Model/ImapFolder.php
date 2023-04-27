@@ -1,5 +1,5 @@
 <?php
-namespace T3fx\T3fxMailscanner\Domain\Model;
+namespace T3x\T3xMailscanner\Domain\Model;
 
 
 /***************************************************************
@@ -39,14 +39,14 @@ class ImapFolder extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $fullName = '';
-    
+
     /**
      * name
      *
      * @var string
      */
     protected $name = '';
-    
+
     /**
      * Returns the fullName
      *
@@ -56,7 +56,7 @@ class ImapFolder extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->fullName;
     }
-    
+
     /**
      * Sets the fullName
      *
@@ -67,7 +67,7 @@ class ImapFolder extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->fullName = $fullName;
     }
-    
+
     /**
      * Returns the name
      *
@@ -77,7 +77,7 @@ class ImapFolder extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return utf8_encode(imap_utf7_decode($this->name));
     }
-    
+
     /**
      * Sets the name
      *

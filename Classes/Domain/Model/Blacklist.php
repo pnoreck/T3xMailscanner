@@ -1,5 +1,5 @@
 <?php
-namespace T3fx\T3fxMailscanner\Domain\Model;
+namespace T3x\T3xMailscanner\Domain\Model;
 
 
 /***************************************************************
@@ -39,7 +39,7 @@ class Blacklist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $mail = '';
-    
+
     /**
      * domain
      *

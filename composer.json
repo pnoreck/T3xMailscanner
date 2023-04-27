@@ -1,19 +1,19 @@
 {
-   "name": "t3fx/mailscanner",
+   "name": "t3x/mailscanner",
    "type": "typo3-cms-extension",
-   "description": "Configuration module for the T3fx Mail Scanner",
+   "description": "Configuration module for the T3x Mail Scanner",
    "license": "GPL-2.0-or-later",
    "require": {
       "typo3/cms-core": "^11.0"
    },
    "autoload": {
       "psr-4": {
-         "T3fx\\T3fxMailscanner\\": "Classes/"
+         "T3x\\T3xMailscanner\\": "Classes/"
       }
    },
    "extra": {
       "typo3/cms": {
-         "extension-key": "t3fx_mailscanner"
+         "extension-key": "t3x_mailscanner"
       }
    }
 }

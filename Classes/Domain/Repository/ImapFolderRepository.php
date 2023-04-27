@@ -1,5 +1,5 @@
 <?php
-namespace T3fx\T3fxMailscanner\Domain\Repository;
+namespace T3x\T3xMailscanner\Domain\Repository;
 
 /***************************************************************
  *
@@ -39,9 +39,9 @@ class ImapFolderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			'SELECT '.
 				'folder.* '.
 			'FROM '.
-				'tx_t3fxmailscanner_domain_model_imapfolder AS folder '.
+				'tx_t3xmailscanner_domain_model_imapfolder AS folder '.
 			'LEFT JOIN '.
-				'tx_t3fxmailscanner_domain_model_sender AS sender '.
+				'tx_t3xmailscanner_domain_model_sender AS sender '.
 				'ON folder.uid = sender.imap_folder '.
 			'WHERE '.
 				'sender.uid > 0 AND 
@@ -55,5 +55,5 @@ class ImapFolderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
 		return $query->execute();
 	}
-    
+
 }

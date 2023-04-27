@@ -1,5 +1,5 @@
 <?php
-namespace T3fx\T3fxMailscanner\Domain\Model;
+namespace T3x\T3xMailscanner\Domain\Model;
 
 
 /***************************************************************
@@ -39,14 +39,14 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $name = '';
-    
+
     /**
      * imapFolder
      *
-     * @var \T3fx\T3fxMailscanner\Domain\Model\ImapFolder
+     * @var \T3x\T3xMailscanner\Domain\Model\ImapFolder
      */
     protected $imapFolder = null;
-    
+
     /**
      * Returns the name
      *
@@ -56,7 +56,7 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->name;
     }
-    
+
     /**
      * Sets the name
      *
@@ -67,24 +67,24 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->name = $name;
     }
-    
+
     /**
      * Returns the imapFolder
      *
-     * @return \T3fx\T3fxMailscanner\Domain\Model\ImapFolder $imapFolder
+     * @return \T3x\T3xMailscanner\Domain\Model\ImapFolder $imapFolder
      */
     public function getImapFolder()
     {
         return $this->imapFolder;
     }
-    
+
     /**
      * Sets the imapFolder
      *
-     * @param \T3fx\T3fxMailscanner\Domain\Model\ImapFolder $imapFolder
+     * @param \T3x\T3xMailscanner\Domain\Model\ImapFolder $imapFolder
      * @return void
      */
-    public function setImapFolder(\T3fx\T3fxMailscanner\Domain\Model\ImapFolder $imapFolder)
+    public function setImapFolder(\T3x\T3xMailscanner\Domain\Model\ImapFolder $imapFolder)
     {
         $this->imapFolder = $imapFolder;
     }

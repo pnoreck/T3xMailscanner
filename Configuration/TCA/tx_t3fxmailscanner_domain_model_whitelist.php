@@ -1,7 +1,7 @@
 <?php
 return array(
     'ctrl'    => array(
-        'title'            => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_whitelist',
+        'title'            => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_whitelist',
         'label'            => 'name',
         'tstamp'           => 'tstamp',
         'crdate'           => 'crdate',
@@ -36,7 +36,7 @@ return array(
         ],
         'name'          => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_whitelist.name',
+            'label'   => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_whitelist.name',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,

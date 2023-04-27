@@ -1,6 +1,6 @@
 <?php
 
-namespace T3fx\T3fxMailscanner\Tests\Unit\Domain\Model;
+namespace T3x\T3xMailscanner\Tests\Unit\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -27,7 +27,7 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Domain\Model;
  ***************************************************************/
 
 /**
- * Test case for class \T3fx\T3fxMailscanner\Domain\Model\ImapFolder.
+ * Test case for class \T3x\T3xMailscanner\Domain\Model\ImapFolder.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -37,13 +37,13 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Domain\Model;
 class ImapFolderTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
 	/**
-	 * @var \T3fx\T3fxMailscanner\Domain\Model\ImapFolder
+	 * @var \T3x\T3xMailscanner\Domain\Model\ImapFolder
 	 */
 	protected $subject = NULL;
 
 	public function setUp()
 	{
-		$this->subject = new \T3fx\T3fxMailscanner\Domain\Model\ImapFolder();
+		$this->subject = new \T3x\T3xMailscanner\Domain\Model\ImapFolder();
 	}
 
 	public function tearDown()

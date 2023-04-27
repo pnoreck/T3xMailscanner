@@ -1,15 +1,15 @@
 
-plugin.tx_t3fxmailscanner_mailscanner {
+plugin.tx_t3xmailscanner_mailscanner {
 	view {
-		# cat=plugin.tx_t3fxmailscanner_mailscanner/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:t3fx_mailscanner/Resources/Private/Templates/
-		# cat=plugin.tx_t3fxmailscanner_mailscanner/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:t3fx_mailscanner/Resources/Private/Partials/
-		# cat=plugin.tx_t3fxmailscanner_mailscanner/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:t3fx_mailscanner/Resources/Private/Layouts/
+		# cat=plugin.tx_t3xmailscanner_mailscanner/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:t3x_mailscanner/Resources/Private/Templates/
+		# cat=plugin.tx_t3xmailscanner_mailscanner/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:t3x_mailscanner/Resources/Private/Partials/
+		# cat=plugin.tx_t3xmailscanner_mailscanner/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:t3x_mailscanner/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_t3fxmailscanner_mailscanner//a; type=string; label=Default storage PID
+		# cat=plugin.tx_t3xmailscanner_mailscanner//a; type=string; label=Default storage PID
 		storagePid =
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace T3fx\T3fxMailscanner\Tests\Unit\Domain\Model;
+namespace T3x\T3xMailscanner\Tests\Unit\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -27,7 +27,7 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Domain\Model;
  ***************************************************************/
 
 /**
- * Test case for class \T3fx\T3fxMailscanner\Domain\Model\MailScanner.
+ * Test case for class \T3x\T3xMailscanner\Domain\Model\MailScanner.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -37,13 +37,13 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Domain\Model;
 class MailScannerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
 	/**
-	 * @var \T3fx\T3fxMailscanner\Domain\Model\MailScanner
+	 * @var \T3x\T3xMailscanner\Domain\Model\MailScanner
 	 */
 	protected $subject = NULL;
 
 	public function setUp()
 	{
-		$this->subject = new \T3fx\T3fxMailscanner\Domain\Model\MailScanner();
+		$this->subject = new \T3x\T3xMailscanner\Domain\Model\MailScanner();
 	}
 
 	public function tearDown()
@@ -68,7 +68,7 @@ class MailScannerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function setImapFolderForObjectStorageContainingImapFolderSetsImapFolder()
 	{
-		$imapFolder = new \T3fx\T3fxMailscanner\Domain\Model\ImapFolder();
+		$imapFolder = new \T3x\T3xMailscanner\Domain\Model\ImapFolder();
 		$objectStorageHoldingExactlyOneImapFolder = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$objectStorageHoldingExactlyOneImapFolder->attach($imapFolder);
 		$this->subject->setImapFolder($objectStorageHoldingExactlyOneImapFolder);
@@ -85,7 +85,7 @@ class MailScannerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function addImapFolderToObjectStorageHoldingImapFolder()
 	{
-		$imapFolder = new \T3fx\T3fxMailscanner\Domain\Model\ImapFolder();
+		$imapFolder = new \T3x\T3xMailscanner\Domain\Model\ImapFolder();
 		$imapFolderObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
 		$imapFolderObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($imapFolder));
 		$this->inject($this->subject, 'imapFolder', $imapFolderObjectStorageMock);
@@ -98,7 +98,7 @@ class MailScannerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function removeImapFolderFromObjectStorageHoldingImapFolder()
 	{
-		$imapFolder = new \T3fx\T3fxMailscanner\Domain\Model\ImapFolder();
+		$imapFolder = new \T3x\T3xMailscanner\Domain\Model\ImapFolder();
 		$imapFolderObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
 		$imapFolderObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($imapFolder));
 		$this->inject($this->subject, 'imapFolder', $imapFolderObjectStorageMock);

@@ -1,5 +1,5 @@
 <?php
-namespace T3fx\T3fxMailscanner\Domain\Repository;
+namespace T3x\T3xMailscanner\Domain\Repository;
 
 /***************************************************************
  *

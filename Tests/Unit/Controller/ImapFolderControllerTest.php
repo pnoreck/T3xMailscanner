@@ -1,10 +1,10 @@
 <?php
-namespace T3fx\T3fxMailscanner\Tests\Unit\Controller;
+namespace T3x\T3xMailscanner\Tests\Unit\Controller;
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2016 Steffen Hastädt <mailscanner@t3x.ch>
- *  			
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,7 +25,7 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Controller;
  ***************************************************************/
 
 /**
- * Test case for class T3fx\T3fxMailscanner\Controller\ImapFolderController.
+ * Test case for class T3x\T3xMailscanner\Controller\ImapFolderController.
  *
  * @author Steffen Hastädt <mailscanner@t3x.ch>
  */
@@ -33,13 +33,13 @@ class ImapFolderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
 
 	/**
-	 * @var \T3fx\T3fxMailscanner\Controller\ImapFolderController
+	 * @var \T3x\T3xMailscanner\Controller\ImapFolderController
 	 */
 	protected $subject = NULL;
 
 	public function setUp()
 	{
-		$this->subject = $this->getMock('T3fx\\T3fxMailscanner\\Controller\\ImapFolderController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
+		$this->subject = $this->getMock('T3x\\T3xMailscanner\\Controller\\ImapFolderController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
 	}
 
 	public function tearDown()
@@ -71,7 +71,7 @@ class ImapFolderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function deleteActionRemovesTheGivenImapFolderFromImapFolderRepository()
 	{
-		$imapFolder = new \T3fx\T3fxMailscanner\Domain\Model\ImapFolder();
+		$imapFolder = new \T3x\T3xMailscanner\Domain\Model\ImapFolder();
 
 		$imapFolderRepository = $this->getMock('', array('remove'), array(), '', FALSE);
 		$imapFolderRepository->expects($this->once())->method('remove')->with($imapFolder);

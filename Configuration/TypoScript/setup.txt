@@ -1,16 +1,16 @@
 
-plugin.tx_t3fxmailscanner_mailscanner {
+plugin.tx_t3xmailscanner_mailscanner {
 	view {
-		templateRootPaths.0 = {$plugin.tx_t3fxmailscanner_mailscanner.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_t3fxmailscanner_mailscanner.view.partialRootPath}
-		layoutRootPaths.0 = {$plugin.tx_t3fxmailscanner_mailscanner.view.layoutRootPath}
+		templateRootPaths.0 = {$plugin.tx_t3xmailscanner_mailscanner.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_t3xmailscanner_mailscanner.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_t3xmailscanner_mailscanner.view.layoutRootPath}
 	}
 	persistence {
-		storagePid = {$plugin.tx_t3fxmailscanner_mailscanner.persistence.storagePid}
+		storagePid = {$plugin.tx_t3xmailscanner_mailscanner.persistence.storagePid}
 	}
 }
 
-plugin.tx_t3fxmailscanner._CSS_DEFAULT_STYLE (
+plugin.tx_t3xmailscanner._CSS_DEFAULT_STYLE (
 	textarea.f3-form-error {
 		background-color:#FF9F9F;
 		border: 1px #FF0000 solid;
@@ -21,16 +21,16 @@ plugin.tx_t3fxmailscanner._CSS_DEFAULT_STYLE (
 		border: 1px #FF0000 solid;
 	}
 
-	.tx-t3fx-mailscanner table {
+	.tx-t3x-mailscanner table {
 		border-collapse:separate;
 		border-spacing:10px;
 	}
 
-	.tx-t3fx-mailscanner table th {
+	.tx-t3x-mailscanner table th {
 		font-weight:bold;
 	}
 
-	.tx-t3fx-mailscanner table td {
+	.tx-t3x-mailscanner table td {
 		vertical-align:top;
 	}
 

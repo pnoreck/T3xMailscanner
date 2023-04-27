@@ -1,10 +1,10 @@
 <?php
-namespace T3fx\T3fxMailscanner\Tests\Unit\Controller;
+namespace T3x\T3xMailscanner\Tests\Unit\Controller;
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2016 Steffen Hastädt <mailscanner@t3x.ch>
- *  			
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,7 +25,7 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Controller;
  ***************************************************************/
 
 /**
- * Test case for class T3fx\T3fxMailscanner\Controller\SenderController.
+ * Test case for class T3x\T3xMailscanner\Controller\SenderController.
  *
  * @author Steffen Hastädt <mailscanner@t3x.ch>
  */
@@ -33,13 +33,13 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
 
 	/**
-	 * @var \T3fx\T3fxMailscanner\Controller\SenderController
+	 * @var \T3x\T3xMailscanner\Controller\SenderController
 	 */
 	protected $subject = NULL;
 
 	public function setUp()
 	{
-		$this->subject = $this->getMock('T3fx\\T3fxMailscanner\\Controller\\SenderController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
+		$this->subject = $this->getMock('T3x\\T3xMailscanner\\Controller\\SenderController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
 	}
 
 	public function tearDown()
@@ -71,7 +71,7 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function showActionAssignsTheGivenSenderToView()
 	{
-		$sender = new \T3fx\T3fxMailscanner\Domain\Model\Sender();
+		$sender = new \T3x\T3xMailscanner\Domain\Model\Sender();
 
 		$view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
 		$this->inject($this->subject, 'view', $view);
@@ -85,7 +85,7 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function createActionAddsTheGivenSenderToSenderRepository()
 	{
-		$sender = new \T3fx\T3fxMailscanner\Domain\Model\Sender();
+		$sender = new \T3x\T3fxMailscanner\Domain\Model\Sender();
 
 		$senderRepository = $this->getMock('', array('add'), array(), '', FALSE);
 		$senderRepository->expects($this->once())->method('add')->with($sender);

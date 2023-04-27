@@ -1,7 +1,7 @@
 <?php
 return array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender',
+		'title'	=> 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_sender',
 		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -13,7 +13,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,imap_folder,',
-		'iconfile' => 'EXT:t3fx_mailscanner/Resources/Public/Icons/tx_t3fxmailscanner_domain_model_sender.gif'
+		'iconfile' => 'EXT:t3x_mailscanner/Resources/Public/Icons/tx_t3xmailscanner_domain_model_sender.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden, name, imap_folder',
@@ -71,7 +71,7 @@ return array(
 
 		'name' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender.name',
+			'label' => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_sender.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -81,10 +81,10 @@ return array(
 
 		'imap_folder' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_sender.imap_folder',
+			'label' => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_sender.imap_folder',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_t3fxmailscanner_domain_model_imapfolder',
+				'foreign_table' => 'tx_t3xmailscanner_domain_model_imapfolder',
 			),
 		),
 

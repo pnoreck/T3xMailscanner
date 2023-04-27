@@ -1,10 +1,10 @@
 <?php
-namespace T3fx\T3fxMailscanner\Tests\Unit\Controller;
+namespace T3x\T3xMailscanner\Tests\Unit\Controller;
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2016 Steffen Hastädt <mailscanner@t3x.ch>
- *  			
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,7 +25,7 @@ namespace T3fx\T3fxMailscanner\Tests\Unit\Controller;
  ***************************************************************/
 
 /**
- * Test case for class T3fx\T3fxMailscanner\Controller\MailScannerController.
+ * Test case for class T3x\T3xMailscanner\Controller\MailScannerController.
  *
  * @author Steffen Hastädt <mailscanner@t3x.ch>
  */
@@ -33,13 +33,13 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
 
 	/**
-	 * @var \T3fx\T3fxMailscanner\Controller\MailScannerController
+	 * @var \T3x\T3xMailscanner\Controller\MailScannerController
 	 */
 	protected $subject = NULL;
 
 	public function setUp()
 	{
-		$this->subject = $this->getMock('T3fx\\T3fxMailscanner\\Controller\\MailScannerController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
+		$this->subject = $this->getMock('T3x\\T3xMailscanner\\Controller\\MailScannerController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
 	}
 
 	public function tearDown()
@@ -55,7 +55,7 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
 		$allMailScanners = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', FALSE);
 
-		$mailScannerRepository = $this->getMock('T3fx\\T3fxMailscanner\\Domain\\Repository\\MailScannerRepository', array('findAll'), array(), '', FALSE);
+		$mailScannerRepository = $this->getMock('T3x\\T3fxMailscanner\\Domain\\Repository\\MailScannerRepository', array('findAll'), array(), '', FALSE);
 		$mailScannerRepository->expects($this->once())->method('findAll')->will($this->returnValue($allMailScanners));
 		$this->inject($this->subject, 'mailScannerRepository', $mailScannerRepository);
 

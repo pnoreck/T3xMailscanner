@@ -1,6 +1,6 @@
 <?php
 
-namespace T3fx\T3fxMailscanner\Controller;
+namespace T3x\T3xMailscanner\Controller;
 
 /***************************************************************
  *
@@ -27,7 +27,7 @@ namespace T3fx\T3fxMailscanner\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use T3fx\T3fxMailscanner\Domain\Model\Blacklist;
+use T3x\T3xMailscanner\Domain\Model\Blacklist;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -39,7 +39,7 @@ class MailScannerController extends ActionController
     /**
      * SenderRepository
      *
-     * @var \T3fx\T3fxMailscanner\Domain\Repository\SenderRepository
+     * @var \T3x\T3xMailscanner\Domain\Repository\SenderRepository
      * @inject
      */
     protected $senderRepository = null;
@@ -47,7 +47,7 @@ class MailScannerController extends ActionController
     /**
      * imapFolderRepository
      *
-     * @var \T3fx\T3fxMailscanner\Domain\Repository\ImapFolderRepository
+     * @var \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository
      * @inject
      */
     protected $imapFolderRepository = null;
@@ -55,7 +55,7 @@ class MailScannerController extends ActionController
     /**
      * BlacklistRepository
      *
-     * @var \T3fx\T3fxMailscanner\Domain\Repository\BlacklistRepository
+     * @var \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository
      * @inject
      */
     protected $blacklistRepository = null;
@@ -135,7 +135,7 @@ class MailScannerController extends ActionController
     /**
      * action create
      *
-     * @param \T3fx\T3fxMailscanner\Domain\Model\Sender $newSender
+     * @param \T3x\T3fxMailscanner\Domain\Model\Sender $newSender
      *
      * @return void
      */

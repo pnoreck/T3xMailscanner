@@ -1,7 +1,7 @@
 <?php
 return array(
     'ctrl'    => array(
-        'title'            => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_imapfolder',
+        'title'            => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_imapfolder',
         'label'            => 'name',
         'tstamp'           => 'tstamp',
         'crdate'           => 'crdate',
@@ -38,7 +38,7 @@ return array(
 
         'full_name' => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_imapfolder.full_name',
+            'label'   => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_imapfolder.full_name',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,
@@ -47,7 +47,7 @@ return array(
         ),
         'name'      => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3fx_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3fxmailscanner_domain_model_imapfolder.name',
+            'label'   => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_imapfolder.name',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,
