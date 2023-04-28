@@ -85,7 +85,7 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function createActionAddsTheGivenSenderToSenderRepository()
 	{
-		$sender = new \T3x\T3fxMailscanner\Domain\Model\Sender();
+		$sender = new \T3x\T3xMailscanner\Domain\Model\Sender();
 
 		$senderRepository = $this->getMock('', array('add'), array(), '', FALSE);
 		$senderRepository->expects($this->once())->method('add')->with($sender);
@@ -99,7 +99,7 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function editActionAssignsTheGivenSenderToView()
 	{
-		$sender = new \T3fx\T3fxMailscanner\Domain\Model\Sender();
+		$sender = new \T3x\T3xMailscanner\Domain\Model\Sender();
 
 		$view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
 		$this->inject($this->subject, 'view', $view);
@@ -113,7 +113,7 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function updateActionUpdatesTheGivenSenderInSenderRepository()
 	{
-		$sender = new \T3fx\T3fxMailscanner\Domain\Model\Sender();
+		$sender = new \T3x\T3xMailscanner\Domain\Model\Sender();
 
 		$senderRepository = $this->getMock('', array('update'), array(), '', FALSE);
 		$senderRepository->expects($this->once())->method('update')->with($sender);
@@ -127,7 +127,7 @@ class SenderControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function deleteActionRemovesTheGivenSenderFromSenderRepository()
 	{
-		$sender = new \T3fx\T3fxMailscanner\Domain\Model\Sender();
+		$sender = new \T3x\T3xMailscanner\Domain\Model\Sender();
 
 		$senderRepository = $this->getMock('', array('remove'), array(), '', FALSE);
 		$senderRepository->expects($this->once())->method('remove')->with($sender);

@@ -135,11 +135,11 @@ class MailScannerController extends ActionController
     /**
      * action create
      *
-     * @param \T3x\T3fxMailscanner\Domain\Model\Sender $newSender
+     * @param \T3x\T3xMailscanner\Domain\Model\Sender $newSender
      *
      * @return void
      */
-    public function createAction(\T3fx\T3fxMailscanner\Domain\Model\Sender $newSender)
+    public function createAction(\T3x\T3xMailscanner\Domain\Model\Sender $newSender)
     {
         $sender = $this->senderRepository->findSenderByEmail($newSender->getName());
         if ($sender->count() > 0) {
@@ -159,11 +159,11 @@ class MailScannerController extends ActionController
     /**
      * action edit
      *
-     * @param \T3fx\T3fxMailscanner\Domain\Model\Sender $sender
+     * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
      *
      * @return void
      */
-    public function editAction(\T3fx\T3fxMailscanner\Domain\Model\Sender $sender)
+    public function editAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender)
     {
         $this->view->assign('sender', $sender);
         $this->assignImapFolder();
@@ -172,13 +172,13 @@ class MailScannerController extends ActionController
     /**
      * action update
      *
-     * @param \T3fx\T3fxMailscanner\Domain\Model\Sender $sender
+     * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
      * @param bool                                      $blacklist
      * @param bool                                      $wholeDomain
      *
      * @return void
      */
-    public function updateAction(\T3fx\T3fxMailscanner\Domain\Model\Sender $sender, $blacklist, $wholeDomain)
+    public function updateAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender, $blacklist, $wholeDomain)
     {
         if ($blacklist) {
             $mail    = $sender->getName();
@@ -224,11 +224,11 @@ class MailScannerController extends ActionController
     /**
      * action delete
      *
-     * @param \T3fx\T3fxMailscanner\Domain\Model\Sender $sender
+     * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
      *
      * @return void
      */
-    public function deleteAction(\T3fx\T3fxMailscanner\Domain\Model\Sender $sender)
+    public function deleteAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender)
     {
         $this->addFlashMessage('Der Absender wurde gelöscht', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::NOTICE);
         $this->senderRepository->remove($sender);

@@ -55,7 +55,7 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
 		$allMailScanners = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', FALSE);
 
-		$mailScannerRepository = $this->getMock('T3x\\T3fxMailscanner\\Domain\\Repository\\MailScannerRepository', array('findAll'), array(), '', FALSE);
+		$mailScannerRepository = $this->getMock('T3x\\T3xMailscanner\\Domain\\Repository\\MailScannerRepository', array('findAll'), array(), '', FALSE);
 		$mailScannerRepository->expects($this->once())->method('findAll')->will($this->returnValue($allMailScanners));
 		$this->inject($this->subject, 'mailScannerRepository', $mailScannerRepository);
 
@@ -71,9 +71,9 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function createActionAddsTheGivenMailScannerToMailScannerRepository()
 	{
-		$mailScanner = new \T3fx\T3fxMailscanner\Domain\Model\MailScanner();
+		$mailScanner = new \T3x\T3xMailscanner\Domain\Model\MailScanner();
 
-		$mailScannerRepository = $this->getMock('T3fx\\T3fxMailscanner\\Domain\\Repository\\MailScannerRepository', array('add'), array(), '', FALSE);
+		$mailScannerRepository = $this->getMock('T3x\\T3xMailscanner\\Domain\\Repository\\MailScannerRepository', array('add'), array(), '', FALSE);
 		$mailScannerRepository->expects($this->once())->method('add')->with($mailScanner);
 		$this->inject($this->subject, 'mailScannerRepository', $mailScannerRepository);
 
@@ -85,7 +85,7 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function editActionAssignsTheGivenMailScannerToView()
 	{
-		$mailScanner = new \T3fx\T3fxMailscanner\Domain\Model\MailScanner();
+		$mailScanner = new \T3x\T3xMailscanner\Domain\Model\MailScanner();
 
 		$view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
 		$this->inject($this->subject, 'view', $view);
@@ -99,9 +99,9 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function updateActionUpdatesTheGivenMailScannerInMailScannerRepository()
 	{
-		$mailScanner = new \T3fx\T3fxMailscanner\Domain\Model\MailScanner();
+		$mailScanner = new \T3x\T3xMailscanner\Domain\Model\MailScanner();
 
-		$mailScannerRepository = $this->getMock('T3fx\\T3fxMailscanner\\Domain\\Repository\\MailScannerRepository', array('update'), array(), '', FALSE);
+		$mailScannerRepository = $this->getMock('T3x\\T3xMailscanner\\Domain\\Repository\\MailScannerRepository', array('update'), array(), '', FALSE);
 		$mailScannerRepository->expects($this->once())->method('update')->with($mailScanner);
 		$this->inject($this->subject, 'mailScannerRepository', $mailScannerRepository);
 
@@ -113,9 +113,9 @@ class MailScannerControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	public function deleteActionRemovesTheGivenMailScannerFromMailScannerRepository()
 	{
-		$mailScanner = new \T3fx\T3fxMailscanner\Domain\Model\MailScanner();
+		$mailScanner = new \T3x\T3xMailscanner\Domain\Model\MailScanner();
 
-		$mailScannerRepository = $this->getMock('T3fx\\T3fxMailscanner\\Domain\\Repository\\MailScannerRepository', array('remove'), array(), '', FALSE);
+		$mailScannerRepository = $this->getMock('T3x\\T3xMailscanner\\Domain\\Repository\\MailScannerRepository', array('remove'), array(), '', FALSE);
 		$mailScannerRepository->expects($this->once())->method('remove')->with($mailScanner);
 		$this->inject($this->subject, 'mailScannerRepository', $mailScannerRepository);
 
