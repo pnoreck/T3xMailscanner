@@ -60,6 +60,5 @@ return array(
                 'type' => 'check',
             ),
         ),
-
     ),
 );
