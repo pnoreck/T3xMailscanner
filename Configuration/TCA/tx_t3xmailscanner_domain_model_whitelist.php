@@ -12,7 +12,7 @@ return array(
         ),
         'searchFields'     => 'name',
         'typeicon_classes' => [
-            'default' => 'tx_examples-dummy',
+            'default' => 'overlay-approved',
         ],
     ),
     'types'   => array(

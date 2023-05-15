@@ -13,7 +13,7 @@ return array(
         ),
         'searchFields'     => 'mail, domain, complete_domain',
         'typeicon_classes' => [
-            'default' => 'tx_examples-dummy',
+            'default' => 'apps-pagetree-drag-place-denied',
         ],
     ),
     'types'   => array(

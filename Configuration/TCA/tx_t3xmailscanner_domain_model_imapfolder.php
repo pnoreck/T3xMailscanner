@@ -12,7 +12,7 @@ return array(
             'disabled' => 'hidden',
         ),
         'typeicon_classes' => [
-            'default' => 'tx_examples-dummy',
+            'default' => 'apps-filetree-folder',
         ],
     ),
     'types'   => array(

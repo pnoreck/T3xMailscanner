@@ -40,7 +40,6 @@ class MailScannerController extends ActionController
      * SenderRepository
      *
      * @var \T3x\T3xMailscanner\Domain\Repository\SenderRepository
-     * @inject
      */
     protected $senderRepository = null;
 
@@ -48,7 +47,6 @@ class MailScannerController extends ActionController
      * imapFolderRepository
      *
      * @var \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository
-     * @inject
      */
     protected $imapFolderRepository = null;
 
@@ -56,9 +54,35 @@ class MailScannerController extends ActionController
      * BlacklistRepository
      *
      * @var \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository
-     * @inject
      */
     protected $blacklistRepository = null;
+
+    /**
+     * @param \T3x\T3xMailscanner\Domain\Repository\SenderRepository|null $senderRepository
+     */
+    public function setSenderRepository(\T3x\T3xMailscanner\Domain\Repository\SenderRepository $senderRepository): void
+    {
+        $this->senderRepository = $senderRepository;
+    }
+
+    /**
+     * @param \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository|null $imapFolderRepository
+     */
+    public function setImapFolderRepository(
+        \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository $imapFolderRepository
+    ): void {
+        $this->imapFolderRepository = $imapFolderRepository;
+    }
+
+    /**
+     * @param \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository|null $blacklistRepository
+     */
+    public function setBlacklistRepository(
+        \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository $blacklistRepository
+    ): void {
+        $this->blacklistRepository = $blacklistRepository;
+    }
+
 
     /**
      * action list
@@ -173,15 +197,15 @@ class MailScannerController extends ActionController
      * action update
      *
      * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
-     * @param bool                                      $blacklist
-     * @param bool                                      $wholeDomain
+     * @param bool                                    $blacklist
+     * @param bool                                    $wholeDomain
      *
      * @return void
      */
     public function updateAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender, $blacklist, $wholeDomain)
     {
         if ($blacklist) {
-            $mail    = $sender->getName();
+            $mail = $sender->getName();
             $blocked = new Blacklist();
             if ($wholeDomain) {
                 $mail = explode('@', $mail);

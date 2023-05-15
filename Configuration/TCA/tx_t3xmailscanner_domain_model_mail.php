@@ -13,7 +13,9 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,imap_folder,',
-		'iconfile' => 'EXT:t3x_mailscanner/Resources/Public/Icons/tx_t3xmailscanner_domain_model_sender.gif'
+        'typeicon_classes' => [
+            'default' => 'install-test-mail',
+        ],
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden, name, imap_folder',
