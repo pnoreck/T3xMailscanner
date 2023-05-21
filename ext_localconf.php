@@ -1,18 +1,15 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
+/*
+ * Copyright 2023 - Steffen Hastädt
+ *
+ * info@t3x.ch | www.t3x.ch
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ */
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	't3x_mailscanner',
-	'Mailscanner',
-	array(
-		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',
-
-	),
-	// non-cacheable actions
-	array(
-		'MailScanner' => 'list, listByFolder, edit, new, create, update, delete',
-
-	)
-);
+defined('TYPO3') or die();
