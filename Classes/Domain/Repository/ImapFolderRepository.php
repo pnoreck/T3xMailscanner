@@ -23,7 +23,7 @@ class ImapFolderRepository extends Repository
 {
 
 
-    public function findFolderWithSender()
+    public function findFolderWithSender(): array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
     {
         $query = $this->createQuery();
         $query->statement(

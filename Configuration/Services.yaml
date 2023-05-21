@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  T3x\Mailscanner\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  T3x\Mailscanner\Controller\Backend\MailScannerController:
+    tags: ['backend.controller']
+    public: true

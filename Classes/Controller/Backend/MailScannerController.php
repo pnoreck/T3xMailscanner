@@ -12,7 +12,7 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace T3x\Mailscanner\Controller;
+namespace T3x\Mailscanner\Controller\Backend;
 
 use Psr\Http\Message\ResponseInterface;
 use T3x\Mailscanner\Domain\Model\Blacklist;
@@ -21,73 +21,28 @@ use T3x\Mailscanner\Domain\Repository\BlacklistRepository;
 use T3x\Mailscanner\Domain\Repository\ImapFolderRepository;
 use T3x\Mailscanner\Domain\Repository\SenderRepository;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 
 /**
  * MailScannerController
  */
-class MailScannerController extends ActionController
+final class MailScannerController extends ActionController
 {
-
-    /**
-     * SenderRepository
-     *
-     * @var SenderRepository
-     */
-    protected $senderRepository = null;
-
-    /**
-     * imapFolderRepository
-     *
-     * @var ImapFolderRepository
-     */
-    protected $imapFolderRepository = null;
-
-    /**
-     * BlacklistRepository
-     *
-     * @var BlacklistRepository
-     */
-    protected $blacklistRepository = null;
 
     public function __construct(
         protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-        protected readonly IconFactory $iconFactory,
+        protected readonly SenderRepository $senderRepository,
+        protected readonly ImapFolderRepository $imapFolderRepository,
+        protected readonly BlacklistRepository $blacklistRepository
     ) {
-    }
-
-    /**
-     * @param SenderRepository|null $senderRepository
-     */
-    public function injectSenderRepository(SenderRepository $senderRepository
-    ): void {
-        $this->senderRepository = $senderRepository;
-    }
-
-    /**
-     * @param ImapFolderRepository|null $imapFolderRepository
-     */
-    public function injectImapFolderRepository(
-        ImapFolderRepository $imapFolderRepository
-    ): void {
-        $this->imapFolderRepository = $imapFolderRepository;
-    }
-
-    /**
-     * @param BlacklistRepository|null $blacklistRepository
-     */
-    public function injectBlacklistRepository(
-        BlacklistRepository $blacklistRepository
-    ): void {
-        $this->blacklistRepository = $blacklistRepository;
     }
 
     /**
      * action list
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      */
     public function listAction(): ResponseInterface
     {
@@ -103,7 +58,7 @@ class MailScannerController extends ActionController
     /**
      * @return ResponseInterface
      */
-    public function returnRequest()
+    public function returnRequest(): ResponseInterface
     {
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
         // Adding title, menus, buttons, etc. using $moduleTemplate ...
@@ -114,7 +69,7 @@ class MailScannerController extends ActionController
     /**
      * @param int $folderUid
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      */
     public function listByFolderAction(int $folderUid = 0): ResponseInterface
     {
@@ -136,7 +91,7 @@ class MailScannerController extends ActionController
      *
      * @return void
      */
-    protected function setLastFolderUid($folderUid): void
+    protected function setLastFolderUid(int $folderUid): void
     {
         $GLOBALS['TSFE']->fe_user->setKey('ses', 'lastFolderUid', $folderUid);
     }
@@ -273,6 +228,7 @@ class MailScannerController extends ActionController
      * @param Sender $sender
      *
      * @return void
+     * @throws IllegalObjectTypeException
      */
     public function deleteAction(Sender $sender)
     {

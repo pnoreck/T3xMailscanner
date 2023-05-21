@@ -12,7 +12,7 @@ return [
         'labels'            => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
         'extensionName'     => 'Examples',
         'controllerActions' => [
-            \T3x\Mailscanner\Controller\MailScannerController::class => [
+            \T3x\Mailscanner\Controller\Backend\MailScannerController::class => [
                 'list',
                 'listByFolder',
                 'edit',
