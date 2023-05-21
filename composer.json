@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "T3x\\T3xMailscanner\\": "Classes/"
+      "T3x\\Mailscanner\\": "Classes/"
     }
   },
   "extra": {

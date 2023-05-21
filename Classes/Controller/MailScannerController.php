@@ -12,34 +12,17 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace T3x\T3xMailscanner\Controller;
+namespace T3x\Mailscanner\Controller;
 
-/***************************************************************
- *
- *  Copyright notice
- *
- *  (c) 2016 Steffen Hastädt <mailscanner@t3x.ch>
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
-
-use T3x\T3xMailscanner\Domain\Model\Blacklist;
+use Psr\Http\Message\ResponseInterface;
+use T3x\Mailscanner\Domain\Model\Blacklist;
+use T3x\Mailscanner\Domain\Model\Sender;
+use T3x\Mailscanner\Domain\Repository\BlacklistRepository;
+use T3x\Mailscanner\Domain\Repository\ImapFolderRepository;
+use T3x\Mailscanner\Domain\Repository\SenderRepository;
+use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -51,69 +34,89 @@ class MailScannerController extends ActionController
     /**
      * SenderRepository
      *
-     * @var \T3x\T3xMailscanner\Domain\Repository\SenderRepository
+     * @var SenderRepository
      */
     protected $senderRepository = null;
 
     /**
      * imapFolderRepository
      *
-     * @var \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository
+     * @var ImapFolderRepository
      */
     protected $imapFolderRepository = null;
 
     /**
      * BlacklistRepository
      *
-     * @var \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository
+     * @var BlacklistRepository
      */
     protected $blacklistRepository = null;
 
+    public function __construct(
+        protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+        protected readonly IconFactory $iconFactory,
+    ) {
+    }
+
     /**
-     * @param \T3x\T3xMailscanner\Domain\Repository\SenderRepository|null $senderRepository
+     * @param SenderRepository|null $senderRepository
      */
-    public function injectSenderRepository(\T3x\T3xMailscanner\Domain\Repository\SenderRepository $senderRepository): void
-    {
+    public function injectSenderRepository(SenderRepository $senderRepository
+    ): void {
         $this->senderRepository = $senderRepository;
     }
 
     /**
-     * @param \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository|null $imapFolderRepository
+     * @param ImapFolderRepository|null $imapFolderRepository
      */
     public function injectImapFolderRepository(
-        \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository $imapFolderRepository
+        ImapFolderRepository $imapFolderRepository
     ): void {
         $this->imapFolderRepository = $imapFolderRepository;
     }
 
     /**
-     * @param \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository|null $blacklistRepository
+     * @param BlacklistRepository|null $blacklistRepository
      */
     public function injectBlacklistRepository(
-        \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository $blacklistRepository
+        BlacklistRepository $blacklistRepository
     ): void {
         $this->blacklistRepository = $blacklistRepository;
     }
 
-
     /**
      * action list
      *
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    public function listAction()
+    public function listAction(): ResponseInterface
     {
         $folder = $this->imapFolderRepository->findFolderWithSender();
         $this->view->assign('folders', $folder);
 
         // $senders = $this->senderRepository->findAll();
         // $this->view->assign( 'senders', $senders );
+
+        return $this->returnRequest();
+    }
+
+    /**
+     * @return ResponseInterface
+     */
+    public function returnRequest()
+    {
+        $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
+        // Adding title, menus, buttons, etc. using $moduleTemplate ...
+        $moduleTemplate->setContent($this->view->render());
+        return $this->htmlResponse($moduleTemplate->renderContent());
     }
 
     /**
      * @param int $folderUid
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    public function listByFolderAction($folderUid = 0)
+    public function listByFolderAction(int $folderUid = 0): ResponseInterface
     {
         $folder = $this->imapFolderRepository->findFolderWithSender();
         $this->view->assign('folders', $folder);
@@ -122,6 +125,8 @@ class MailScannerController extends ActionController
         $this->view->assign('senders', $senders);
 
         $this->setLastFolderUid($folderUid);
+
+        return $this->returnRequest();
     }
 
     /**
@@ -131,15 +136,17 @@ class MailScannerController extends ActionController
      *
      * @return void
      */
-    protected function setLastFolderUid($folderUid)
+    protected function setLastFolderUid($folderUid): void
     {
         $GLOBALS['TSFE']->fe_user->setKey('ses', 'lastFolderUid', $folderUid);
     }
 
     /**
      * @param int $folderUid
+     *
+     * @return ResponseInterface
      */
-    public function updateListAction($folderUid = 0)
+    public function updateListAction(int $folderUid = 0): ResponseInterface
     {
         $senders = $this->senderRepository->findSenderByFolder($folderUid);
 
@@ -147,22 +154,24 @@ class MailScannerController extends ActionController
         $this->view->assign('folders', $folder);
         $this->view->assign('senders', $senders);
 
+        return $this->returnRequest();
     }
 
     /**
      * action new
      *
-     * @return void
+     * @return ResponseInterface
      */
-    public function newAction()
+    public function newAction(): ResponseInterface
     {
         $this->assignImapFolder();
+        return $this->returnRequest();
     }
 
     /**
      * Assign all ImapFolders to the view
      */
-    private function assignImapFolder()
+    private function assignImapFolder(): void
     {
         $imapFolders = $this->imapFolderRepository->findAll();
         $this->view->assign('imapFolders', $imapFolders);
@@ -171,18 +180,18 @@ class MailScannerController extends ActionController
     /**
      * action create
      *
-     * @param \T3x\T3xMailscanner\Domain\Model\Sender $newSender
+     * @param Sender $newSender
      *
      * @return void
      */
-    public function createAction(\T3x\T3xMailscanner\Domain\Model\Sender $newSender)
+    public function createAction(Sender $newSender): void
     {
         $sender = $this->senderRepository->findSenderByEmail($newSender->getName());
         if ($sender->count() > 0) {
             $this->addFlashMessage(
                 'Absender existiert bereits',
                 '',
-                \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING
+                ContextualFeedbackSeverity::WARNING
             );
             $this->redirect('list');
         }
@@ -195,29 +204,30 @@ class MailScannerController extends ActionController
     /**
      * action edit
      *
-     * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
+     * @param Sender $sender
      *
-     * @return void
+     * @return ResponseInterface
      */
-    public function editAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender)
+    public function editAction(Sender $sender): ResponseInterface
     {
         $this->view->assign('sender', $sender);
         $this->assignImapFolder();
+        return $this->returnRequest();
     }
 
     /**
      * action update
      *
-     * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
-     * @param bool                                    $blacklist
-     * @param bool                                    $wholeDomain
+     * @param Sender $sender
+     * @param bool   $blacklist
+     * @param bool   $wholeDomain
      *
      * @return void
      */
-    public function updateAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender, $blacklist, $wholeDomain)
+    public function updateAction(Sender $sender, $blacklist, $wholeDomain)
     {
         if ($blacklist) {
-            $mail = $sender->getName();
+            $mail    = $sender->getName();
             $blocked = new Blacklist();
             if ($wholeDomain) {
                 $mail = explode('@', $mail);
@@ -237,7 +247,7 @@ class MailScannerController extends ActionController
             $this->senderRepository->remove($sender);
         }
 
-        $this->addFlashMessage('Absender wurde aktualisiert', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+        $this->addFlashMessage('Absender wurde aktualisiert', '', ContextualFeedbackSeverity::OK);
         $this->senderRepository->update($sender);
         $lastFolderUid = $this->getLastFolderUid();
         if ($lastFolderUid > 0) {
@@ -260,13 +270,13 @@ class MailScannerController extends ActionController
     /**
      * action delete
      *
-     * @param \T3x\T3xMailscanner\Domain\Model\Sender $sender
+     * @param Sender $sender
      *
      * @return void
      */
-    public function deleteAction(\T3x\T3xMailscanner\Domain\Model\Sender $sender)
+    public function deleteAction(Sender $sender)
     {
-        $this->addFlashMessage('Der Absender wurde gelöscht', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::NOTICE);
+        $this->addFlashMessage('Der Absender wurde gelöscht', '', ContextualFeedbackSeverity::NOTICE);
         $this->senderRepository->remove($sender);
         $this->redirect('list');
     }

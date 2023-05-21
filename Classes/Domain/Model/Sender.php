@@ -11,39 +11,14 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
+namespace T3x\Mailscanner\Domain\Model;
 
-namespace T3x\T3xMailscanner\Domain\Model;
-
-
-/***************************************************************
- *
- *  Copyright notice
- *
- *  (c) 2016 Steffen Hastädt <mailscanner@t3x.ch>
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Sender
  */
-class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Sender extends AbstractEntity
 {
 
     /**
@@ -56,7 +31,7 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * imapFolder
      *
-     * @var \T3x\T3xMailscanner\Domain\Model\ImapFolder
+     * @var ImapFolder
      */
     protected $imapFolder = null;
 
@@ -74,6 +49,7 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the name
      *
      * @param string $name
+     *
      * @return void
      */
     public function setName($name)
@@ -84,7 +60,7 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the imapFolder
      *
-     * @return \T3x\T3xMailscanner\Domain\Model\ImapFolder $imapFolder
+     * @return ImapFolder $imapFolder
      */
     public function getImapFolder()
     {
@@ -94,10 +70,11 @@ class Sender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the imapFolder
      *
-     * @param \T3x\T3xMailscanner\Domain\Model\ImapFolder $imapFolder
+     * @param ImapFolder $imapFolder
+     *
      * @return void
      */
-    public function setImapFolder(\T3x\T3xMailscanner\Domain\Model\ImapFolder $imapFolder)
+    public function setImapFolder(ImapFolder $imapFolder)
     {
         $this->imapFolder = $imapFolder;
     }
