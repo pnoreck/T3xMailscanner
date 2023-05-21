@@ -72,7 +72,7 @@ class MailScannerController extends ActionController
     /**
      * @param \T3x\T3xMailscanner\Domain\Repository\SenderRepository|null $senderRepository
      */
-    public function setSenderRepository(\T3x\T3xMailscanner\Domain\Repository\SenderRepository $senderRepository): void
+    public function injectSenderRepository(\T3x\T3xMailscanner\Domain\Repository\SenderRepository $senderRepository): void
     {
         $this->senderRepository = $senderRepository;
     }
@@ -80,7 +80,7 @@ class MailScannerController extends ActionController
     /**
      * @param \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository|null $imapFolderRepository
      */
-    public function setImapFolderRepository(
+    public function injectImapFolderRepository(
         \T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository $imapFolderRepository
     ): void {
         $this->imapFolderRepository = $imapFolderRepository;
@@ -89,7 +89,7 @@ class MailScannerController extends ActionController
     /**
      * @param \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository|null $blacklistRepository
      */
-    public function setBlacklistRepository(
+    public function injectBlacklistRepository(
         \T3x\T3xMailscanner\Domain\Repository\BlacklistRepository $blacklistRepository
     ): void {
         $this->blacklistRepository = $blacklistRepository;
