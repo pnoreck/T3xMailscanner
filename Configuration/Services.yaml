@@ -11,3 +11,12 @@ services:
   T3x\Mailscanner\Controller\Backend\MailScannerController:
     tags: ['backend.controller']
     public: true
+
+  T3x\Mailscanner\Domain\Repository\BlacklistRepository:
+    public: true
+
+  T3x\Mailscanner\Domain\Repository\ImportRepository:
+    public: true
+
+  T3x\Mailscanner\Domain\Repository\SenderRepository:
+    public: true

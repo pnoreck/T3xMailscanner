@@ -12,8 +12,11 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-    'mailscanner',
-    'Configuration/TypoScript',
-    'Mail Scanner'
-);
+$iconList = [
+    'txloginlink-loginlink' => [
+        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
+        'source' => 'EXT:mailscanner/Resources/Public/Icons/loginlink.svg',
+    ],
+];
+
+return $iconList;
