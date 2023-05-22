@@ -13,9 +13,9 @@
  */
 
 $iconList = [
-    'txloginlink-loginlink' => [
+    'mailscanner-relation' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-        'source' => 'EXT:mailscanner/Resources/Public/Icons/loginlink.svg',
+        'source' => 'EXT:mailscanner/Resources/Public/Icons/relation.gif',
     ],
 ];
 

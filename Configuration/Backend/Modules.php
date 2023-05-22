@@ -8,9 +8,9 @@ return [
         'position'          => ['top'],
         'access'            => 'user',
         'workspaces'        => 'live',
-        'path'              => '/module/system/example',
-        'labels'            => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
-        'extensionName'     => 'Examples',
+        'path'              => '/module/system/mailscanner',
+        'labels'            => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf',
+        'extensionName'     => 'mailscanner',
         'controllerActions' => [
             \T3x\Mailscanner\Controller\Backend\MailScannerController::class => [
                 'list',

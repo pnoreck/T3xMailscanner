@@ -27,9 +27,9 @@ class SenderRepository extends Repository
      *
      * @param string $email
      *
-     * @return array|QueryResultInterface
+     * @return QueryResultInterface
      */
-    public function findSenderByEmail($email): QueryResultInterface|array
+    public function findSenderByEmail($email): QueryResultInterface
     {
         $query = $this->createQuery();
         return $query->matching(
@@ -42,9 +42,9 @@ class SenderRepository extends Repository
      *
      * @param int $folderUid
      *
-     * @return array|QueryResultInterface
+     * @return QueryResultInterface
      */
-    public function findSenderByFolder($folderUid): QueryResultInterface|array
+    public function findSenderByFolder($folderUid): QueryResultInterface
     {
         $query = $this->createQuery();
         return $query->matching(
@@ -57,9 +57,9 @@ class SenderRepository extends Repository
      *
      * @param string $domain
      *
-     * @return array|QueryResultInterface
+     * @return QueryResultInterface
      */
-    public function findSenderByDomain($domain): QueryResultInterface|array
+    public function findSenderByDomain($domain): QueryResultInterface
     {
         $query = $this->createQuery();
         return $query->matching(
