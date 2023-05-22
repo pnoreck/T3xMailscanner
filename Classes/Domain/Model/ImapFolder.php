@@ -27,14 +27,14 @@ class ImapFolder extends AbstractEntity
      *
      * @var string
      */
-    protected $fullName = '';
+    protected string $fullName = '';
 
     /**
      * name
      *
      * @var string
      */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * Returns the fullName

@@ -23,77 +23,77 @@ class Blacklist extends AbstractEntity
      *
      * @var string
      */
-    protected $mail = '';
+    protected string $mail = '';
 
     /**
      * domain
      *
      * @var string
      */
-    protected $domain = null;
+    protected string $domain = '';
 
     /**
      * wholeDomain
      *
      * @var bool
      */
-    protected $wholeDomain = false;
+    protected bool $wholeDomain = false;
 
     /**
      * @return string
      */
-    public function getMail()
+    public function getMail(): string
     {
         return $this->mail;
     }
 
     /**
      * @param string $mail
+     *
+     * @return self
      */
-    public function setMail($mail)
+    public function setMail(string $mail): self
     {
         $this->mail = $mail;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDomain()
+    public function getDomain(): string
     {
         return $this->domain;
     }
 
     /**
      * @param string $domain
+     *
+     * @return self
      */
-    public function setDomain($domain)
+    public function setDomain(string $domain): self
     {
         $this->domain = $domain;
+        return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isWholeDomain()
+    public function isWholeDomain(): bool
     {
         return $this->wholeDomain;
     }
 
     /**
-     * @return boolean
+     * @param bool $wholeDomain
+     *
+     * @return self
      */
-    public function getWholeDomain()
-    {
-        return $this->wholeDomain;
-    }
-
-    /**
-     * @param boolean $wholeDomain
-     */
-    public function setWholeDomain($wholeDomain)
+    public function setWholeDomain(bool $wholeDomain): self
     {
         $this->wholeDomain = $wholeDomain;
+        return $this;
     }
-
 
 }
