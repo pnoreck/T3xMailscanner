@@ -20,8 +20,4 @@ use TYPO3\CMS\Backend\Controller;
  */
 return [
 
-    'mailscanner' => [
-        'path' => '/mailscanner/list',
-        'target' =>  \T3x\T3xMailscanner\Controller\Backend\MailScannerController::class . '::listAction',
-    ],
 ];

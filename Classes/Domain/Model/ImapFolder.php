@@ -65,7 +65,7 @@ class ImapFolder extends AbstractEntity
      */
     public function getName()
     {
-        return utf8_encode(imap_utf7_decode($this->name));
+        return mb_convert_encoding(imap_utf7_decode($this->name), 'UTF-8', 'ISO-8859-1');
     }
 
     /**

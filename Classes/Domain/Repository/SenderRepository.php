@@ -14,6 +14,7 @@
 
 namespace T3x\T3xMailscanner\Domain\Repository;
 
+use T3x\T3xMailscanner\Domain\Model\ImapFolder;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
@@ -40,15 +41,15 @@ class SenderRepository extends Repository
     /**
      * Find all sender by given imap folder
      *
-     * @param int $folderUid
+     * @param ImapFolder $imapFolder
      *
      * @return QueryResultInterface
      */
-    public function findSenderByFolder($folderUid): QueryResultInterface
+    public function findSenderByFolder(ImapFolder $imapFolder): QueryResultInterface
     {
         $query = $this->createQuery();
         return $query->matching(
-            $query->equals('imap_folder', $folderUid)
+            $query->equals('imapFolder', $imapFolder)
         )->execute();
     }
 

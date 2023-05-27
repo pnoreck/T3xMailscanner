@@ -15,11 +15,12 @@
 namespace T3x\T3xMailscanner\Controller\Backend;
 
 use Psr\Http\Message\ResponseInterface;
+use T3x\T3xMailscanner\Domain\Model\ImapFolder;
+use T3x\T3xMailscanner\Domain\Repository\SenderRepository;
 use T3x\T3xMailscanner\Domain\Model\Blacklist;
 use T3x\T3xMailscanner\Domain\Model\Sender;
 use T3x\T3xMailscanner\Domain\Repository\BlacklistRepository;
 use T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository;
-use T3x\T3xMailscanner\Domain\Repository\SenderRepository;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -67,19 +68,21 @@ final class MailScannerController extends ActionController
     }
 
     /**
-     * @param int $folderUid
+     * @param int $imapFolder
      *
      * @return ResponseInterface
      */
-    public function listByFolderAction(int $folderUid = 0): ResponseInterface
+    public function listByFolderAction(ImapFolder $imapFolder = null): ResponseInterface
     {
         $folder = $this->imapFolderRepository->findFolderWithSender();
         $this->view->assign('folders', $folder);
 
-        $senders = $this->senderRepository->findSenderByFolder($folderUid);
+        $senders = $this->senderRepository->findSenderByFolder($imapFolder);
+        debug($imapFolder);
+        debug($senders);
         $this->view->assign('senders', $senders);
 
-        $this->setLastFolderUid($folderUid);
+        $this->setLastFolderUid($imapFolder->getUid());
 
         return $this->returnRequest();
     }
@@ -93,17 +96,20 @@ final class MailScannerController extends ActionController
      */
     protected function setLastFolderUid(int $folderUid): void
     {
-        $GLOBALS['TSFE']->fe_user->setKey('ses', 'lastFolderUid', $folderUid);
+        if (!session_id()) {
+            session_start();
+        }
+        $_SESSION["lastFolderUid"] = $folderUid;
     }
 
     /**
-     * @param int $folderUid
+     * @param int $imapFolder
      *
      * @return ResponseInterface
      */
-    public function updateListAction(int $folderUid = 0): ResponseInterface
+    public function updateListAction(int $imapFolder = 0): ResponseInterface
     {
-        $senders = $this->senderRepository->findSenderByFolder($folderUid);
+        $senders = $this->senderRepository->findSenderByFolder($imapFolder);
 
         $folder = $this->imapFolderRepository->findFolderWithSender();
         $this->view->assign('folders', $folder);
@@ -206,7 +212,7 @@ final class MailScannerController extends ActionController
         $this->senderRepository->update($sender);
         $lastFolderUid = $this->getLastFolderUid();
         if ($lastFolderUid > 0) {
-            $this->redirect('listByFolder', null, null, ['folderUid' => $lastFolderUid]);
+            $this->redirect('listByFolder', null, null, ['imapFolder' => $lastFolderUid]);
         } else {
             $this->redirect('list');
         }
@@ -219,7 +225,10 @@ final class MailScannerController extends ActionController
      */
     protected function getLastFolderUid()
     {
-        return (int)$GLOBALS['TSFE']->fe_user->getKey('ses', 'lastFolderUid');
+        if (!session_id()) {
+            session_start();
+        }
+        return $_SESSION["lastFolderUid"];
     }
 
     /**
