@@ -18,7 +18,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * The repository for Blacklist items
  */
-class BlacklistRepository extends Repository
+class BlacklistRepository extends AbstractRepository
 {
 
 

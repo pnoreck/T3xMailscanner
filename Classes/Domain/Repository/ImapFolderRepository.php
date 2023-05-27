@@ -19,7 +19,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * The repository for ImapFolder
  */
-class ImapFolderRepository extends Repository
+class ImapFolderRepository extends AbstractRepository
 {
 
 

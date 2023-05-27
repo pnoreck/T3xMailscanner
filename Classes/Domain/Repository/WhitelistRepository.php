@@ -11,14 +11,13 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
-namespace T3x\T3xMailscanner\Domain\Repository;
 
-use TYPO3\CMS\Extbase\Persistence\Repository;
+namespace T3x\T3xMailscanner\Domain\Repository;
 
 /**
  * The repository for Blacklist items
  */
-class WhitelistRepository extends Repository
+class WhitelistRepository extends AbstractRepository
 {
 
 

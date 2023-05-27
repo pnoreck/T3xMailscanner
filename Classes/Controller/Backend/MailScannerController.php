@@ -105,11 +105,11 @@ final class MailScannerController extends ActionController
     }
 
     /**
-     * @param int $imapFolder
+     * @param ImapFolder $imapFolder
      *
      * @return ResponseInterface
      */
-    public function updateListAction(int $imapFolder = 0): ResponseInterface
+    public function updateListAction(ImapFolder $imapFolder): ResponseInterface
     {
         $senders = $this->senderRepository->findSenderByFolder($imapFolder);
 
@@ -145,9 +145,9 @@ final class MailScannerController extends ActionController
      *
      * @param Sender $newSender
      *
-     * @return void
+     * @return ResponseInterface
      */
-    public function createAction(Sender $newSender): void
+    public function createAction(Sender $newSender): ResponseInterface
     {
         $sender = $this->senderRepository->findSenderByEmail($newSender->getName());
         if ($sender->count() > 0) {
@@ -156,12 +156,12 @@ final class MailScannerController extends ActionController
                 '',
                 ContextualFeedbackSeverity::WARNING
             );
-            $this->redirect('list');
+            return $this->redirect('list');
         }
 
         $this->addFlashMessage('Absender wurde hinzugefügt');
         $this->senderRepository->add($newSender);
-        $this->redirect('list');
+        return $this->redirect('list');
     }
 
     /**
@@ -185,9 +185,9 @@ final class MailScannerController extends ActionController
      * @param bool   $blacklist
      * @param bool   $wholeDomain
      *
-     * @return void
+     * @return ResponseInterface
      */
-    public function updateAction(Sender $sender, $blacklist, $wholeDomain)
+    public function updateAction(Sender $sender, $blacklist, $wholeDomain): ResponseInterface
     {
         if ($blacklist) {
             $mail    = $sender->getName();
@@ -214,9 +214,9 @@ final class MailScannerController extends ActionController
         $this->senderRepository->update($sender);
         $lastFolderUid = $this->getLastFolderUid();
         if ($lastFolderUid > 0) {
-            $this->redirect('listByFolder', null, null, ['imapFolder' => $lastFolderUid]);
+            return $this->redirect('listByFolder', null, null, ['imapFolder' => $lastFolderUid]);
         } else {
-            $this->redirect('list');
+            return $this->redirect('list');
         }
     }
 
@@ -238,14 +238,14 @@ final class MailScannerController extends ActionController
      *
      * @param Sender $sender
      *
-     * @return void
+     * @return ResponseInterface
      * @throws IllegalObjectTypeException
      */
-    public function deleteAction(Sender $sender)
+    public function deleteAction(Sender $sender): ResponseInterface
     {
         $this->addFlashMessage('Der Absender wurde gelöscht', '', ContextualFeedbackSeverity::NOTICE);
         $this->senderRepository->remove($sender);
-        $this->redirect('list');
+        return $this->redirect('list');
     }
 
 }
