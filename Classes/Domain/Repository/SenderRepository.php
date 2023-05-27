@@ -23,6 +23,14 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class SenderRepository extends Repository
 {
+
+    /**
+     * @return void
+     */
+     public function initializeObject() {
+        $this->defaultQuerySettings->setRespectStoragePage(false);
+    }
+
     /**
      * Find a sender by given email address
      *

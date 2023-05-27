@@ -5,6 +5,7 @@ ALTER TABLE tx_t3fxmailscanner_domain_model_mail RENAME tx_t3xmailscanner_domain
 ALTER TABLE tx_t3fxmailscanner_domain_model_sender RENAME tx_t3xmailscanner_domain_model_sender;
 ALTER TABLE tx_t3fxmailscanner_domain_model_whitelist RENAME tx_t3xmailscanner_domain_model_whitelist;
 
-UPDATE tx_t3xmailscanner_domain_model_blacklist SET pid = 0;
-UPDATE tx_t3xmailscanner_domain_model_imapfolder SET pid = 0;
-UPDATE tx_t3xmailscanner_domain_model_sender SET pid = 0;
+UPDATE tx_t3xmailscanner_domain_model_blacklist SET pid = 2;
+UPDATE tx_t3xmailscanner_domain_model_imapfolder SET pid = 2;
+UPDATE tx_t3xmailscanner_domain_model_sender SET pid = 2;
+UPDATE tx_t3xmailscanner_domain_model_whitelist SET pid = 2;

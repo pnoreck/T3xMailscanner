@@ -7,7 +7,6 @@ return [
         'parent'            => 'system',
         'position'          => ['top'],
         'access'            => 'user',
-        'workspaces'        => 'live',
         'path'              => '/module/system/mailscanner',
         'labels'            => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf',
         'extensionName'     => 'mailscanner',

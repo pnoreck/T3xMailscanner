@@ -1,7 +1,7 @@
 <?php
 return array(
     'ctrl'    => array(
-        'title'            => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist',
+        'title'            => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist',
         'label'            => 'mail',
         'label_alt'        => 'domain',
         'tstamp'           => 'tstamp',
@@ -37,7 +37,7 @@ return array(
         ],
         'mail'            => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist.mail',
+            'label'   => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist.mail',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,
@@ -46,7 +46,7 @@ return array(
         ),
         'domain'          => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist.domain',
+            'label'   => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist.domain',
             'config'  => array(
                 'type' => 'input',
                 'size' => 30,
@@ -55,7 +55,7 @@ return array(
         ),
         'complete_domain' => array(
             'exclude' => 1,
-            'label'   => 'LLL:EXT:t3x_mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist.complete_domain',
+            'label'   => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_blacklist.complete_domain',
             'config'  => array(
                 'type' => 'check',
             ),
