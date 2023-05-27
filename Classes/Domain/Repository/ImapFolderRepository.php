@@ -12,7 +12,7 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace T3x\Mailscanner\Domain\Repository;
+namespace T3x\T3xMailscanner\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Repository;
 

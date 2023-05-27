@@ -12,14 +12,14 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace T3x\Mailscanner\Controller\Backend;
+namespace T3x\T3xMailscanner\Controller\Backend;
 
 use Psr\Http\Message\ResponseInterface;
-use T3x\Mailscanner\Domain\Model\Blacklist;
-use T3x\Mailscanner\Domain\Model\Sender;
-use T3x\Mailscanner\Domain\Repository\BlacklistRepository;
-use T3x\Mailscanner\Domain\Repository\ImapFolderRepository;
-use T3x\Mailscanner\Domain\Repository\SenderRepository;
+use T3x\T3xMailscanner\Domain\Model\Blacklist;
+use T3x\T3xMailscanner\Domain\Model\Sender;
+use T3x\T3xMailscanner\Domain\Repository\BlacklistRepository;
+use T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository;
+use T3x\T3xMailscanner\Domain\Repository\SenderRepository;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;

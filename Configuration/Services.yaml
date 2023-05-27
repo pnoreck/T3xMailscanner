@@ -4,19 +4,8 @@ services:
     autoconfigure: true
     public: false
 
-  T3x\Mailscanner\:
+  T3x\T3xMailscanner\:
     resource: '../Classes/*'
-    exclude: '../Classes/Domain/Model/*'
 
-  T3x\Mailscanner\Controller\Backend\MailScannerController:
+  T3x\T3xMailscanner\Controller\Backend\MailScannerController:
     tags: ['backend.controller']
-    public: true
-
-  T3x\Mailscanner\Domain\Repository\BlacklistRepository:
-    public: true
-
-  T3x\Mailscanner\Domain\Repository\ImportRepository:
-    public: true
-
-  T3x\Mailscanner\Domain\Repository\SenderRepository:
-    public: true

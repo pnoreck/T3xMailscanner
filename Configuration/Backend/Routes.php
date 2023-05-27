@@ -22,6 +22,6 @@ return [
 
     'mailscanner' => [
         'path' => '/mailscanner/list',
-        'target' =>  \T3x\Mailscanner\Controller\Backend\MailScannerController::class . '::listAction',
+        'target' =>  \T3x\T3xMailscanner\Controller\Backend\MailScannerController::class . '::listAction',
     ],
 ];

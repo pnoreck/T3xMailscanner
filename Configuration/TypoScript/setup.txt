@@ -1,7 +1,0 @@
-plugin.tx_t3xmailscanner_mailscanner {
-    view {
-        templateRootPaths.0 = {$plugin.tx_t3xmailscanner_mailscanner.view.templateRootPath}
-        partialRootPaths.0 = {$plugin.tx_t3xmailscanner_mailscanner.view.partialRootPath}
-        layoutRootPaths.0 = {$plugin.tx_t3xmailscanner_mailscanner.view.layoutRootPath}
-    }
-}

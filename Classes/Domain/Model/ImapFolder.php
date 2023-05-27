@@ -12,7 +12,7 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace T3x\Mailscanner\Domain\Model;
+namespace T3x\T3xMailscanner\Domain\Model;
 
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
