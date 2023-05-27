@@ -41,7 +41,7 @@ class ImapFolder extends AbstractEntity
      *
      * @return string $fullName
      */
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->fullName;
     }
@@ -53,7 +53,7 @@ class ImapFolder extends AbstractEntity
      *
      * @return void
      */
-    public function setFullName($fullName)
+    public function setFullName($fullName): void
     {
         $this->fullName = $fullName;
     }
@@ -63,7 +63,7 @@ class ImapFolder extends AbstractEntity
      *
      * @return string $name
      */
-    public function getName()
+    public function getName(): string
     {
         return mb_convert_encoding(imap_utf7_decode($this->name), 'UTF-8', 'ISO-8859-1');
     }
@@ -75,7 +75,7 @@ class ImapFolder extends AbstractEntity
      *
      * @return void
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }

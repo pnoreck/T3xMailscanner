@@ -15,12 +15,12 @@
 namespace T3x\T3xMailscanner\Controller\Backend;
 
 use Psr\Http\Message\ResponseInterface;
-use T3x\T3xMailscanner\Domain\Model\ImapFolder;
-use T3x\T3xMailscanner\Domain\Repository\SenderRepository;
 use T3x\T3xMailscanner\Domain\Model\Blacklist;
+use T3x\T3xMailscanner\Domain\Model\ImapFolder;
 use T3x\T3xMailscanner\Domain\Model\Sender;
 use T3x\T3xMailscanner\Domain\Repository\BlacklistRepository;
 use T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository;
+use T3x\T3xMailscanner\Domain\Repository\SenderRepository;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -77,12 +77,14 @@ final class MailScannerController extends ActionController
         $folder = $this->imapFolderRepository->findFolderWithSender();
         $this->view->assign('folders', $folder);
 
-        $senders = $this->senderRepository->findSenderByFolder($imapFolder);
-        debug($imapFolder);
-        debug($senders);
+        if ($imapFolder instanceof ImapFolder) {
+            $senders = $this->senderRepository->findSenderByFolder($imapFolder);
+            $this->setLastFolderUid($imapFolder->getUid());
+        } else {
+            $senders = $this->senderRepository->findSenderWithoutFolder();
+            $this->setLastFolderUid(0);
+        }
         $this->view->assign('senders', $senders);
-
-        $this->setLastFolderUid($imapFolder->getUid());
 
         return $this->returnRequest();
     }

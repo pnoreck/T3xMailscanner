@@ -26,21 +26,21 @@ class Sender extends AbstractEntity
      *
      * @var string
      */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * imapFolder
      *
      * @var ImapFolder
      */
-    protected $imapFolder = null;
+    protected ?ImapFolder $imapFolder = null;
 
     /**
      * Returns the name
      *
      * @return string $name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -52,7 +52,7 @@ class Sender extends AbstractEntity
      *
      * @return void
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -60,9 +60,9 @@ class Sender extends AbstractEntity
     /**
      * Returns the imapFolder
      *
-     * @return ImapFolder $imapFolder
+     * @return ImapFolder|null $imapFolder
      */
-    public function getImapFolder()
+    public function getImapFolder(): ?ImapFolder
     {
         return $this->imapFolder;
     }
@@ -74,7 +74,7 @@ class Sender extends AbstractEntity
      *
      * @return void
      */
-    public function setImapFolder(ImapFolder $imapFolder)
+    public function setImapFolder(ImapFolder $imapFolder): void
     {
         $this->imapFolder = $imapFolder;
     }
