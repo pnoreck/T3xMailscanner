@@ -21,16 +21,21 @@ use T3x\T3xMailscanner\Domain\Model\Sender;
 use T3x\T3xMailscanner\Domain\Repository\BlacklistRepository;
 use T3x\T3xMailscanner\Domain\Repository\ImapFolderRepository;
 use T3x\T3xMailscanner\Domain\Repository\SenderRepository;
+use TYPO3\CMS\Backend\Module\ModuleData;
+use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * MailScannerController
  */
 final class MailScannerController extends ActionController
 {
+    protected ?ModuleData $moduleData = null;
+    protected ModuleTemplate $moduleTemplate;
 
     public function __construct(
         protected readonly ModuleTemplateFactory $moduleTemplateFactory,
@@ -41,6 +46,32 @@ final class MailScannerController extends ActionController
     }
 
     /**
+     * Init module state.
+     * This isn't done within __construct() since the controller
+     * object is only created once in extbase when multiple actions are called in
+     * one call. When those change module state, the second action would see old state.
+     */
+    public function initializeAction(): void
+    {
+        $this->moduleData = $this->request->getAttribute('moduleData');
+        $this->moduleTemplate = $this->moduleTemplateFactory->create($this->request);
+        $this->moduleTemplate->setTitle(LocalizationUtility::translate('LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:mlang_tabs_tab'));
+        $this->moduleTemplate->setFlashMessageQueue($this->getFlashMessageQueue());
+    }
+
+    /**
+     * Assign default variables to ModuleTemplate view
+     */
+    protected function initializeView(): void
+    {
+        $this->moduleTemplate->assignMultiple([
+            'dateFormat' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'],
+            'timeFormat' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
+        ]);
+    }
+
+
+    /**
      * action list
      *
      * @return ResponseInterface
@@ -48,23 +79,12 @@ final class MailScannerController extends ActionController
     public function listAction(): ResponseInterface
     {
         $folder = $this->imapFolderRepository->findFolderWithSender();
-        $this->view->assign('folders', $folder);
+        $this->moduleTemplate->assign('folders', $folder);
 
         // $senders = $this->senderRepository->findAll();
-        // $this->view->assign( 'senders', $senders );
+        // $this->moduleTemplate->assign( 'senders', $senders );
 
-        return $this->returnRequest();
-    }
-
-    /**
-     * @return ResponseInterface
-     */
-    public function returnRequest(): ResponseInterface
-    {
-        $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        // Adding title, menus, buttons, etc. using $moduleTemplate ...
-        $moduleTemplate->setContent($this->view->render());
-        return $this->htmlResponse($moduleTemplate->renderContent());
+        return $this->moduleTemplate->renderResponse('List');
     }
 
     /**
@@ -75,7 +95,7 @@ final class MailScannerController extends ActionController
     public function listByFolderAction(ImapFolder $imapFolder = null): ResponseInterface
     {
         $folder = $this->imapFolderRepository->findFolderWithSender();
-        $this->view->assign('folders', $folder);
+        $this->moduleTemplate->assign('folders', $folder);
 
         if ($imapFolder instanceof ImapFolder) {
             $senders = $this->senderRepository->findSenderByFolder($imapFolder);
@@ -84,9 +104,9 @@ final class MailScannerController extends ActionController
             $senders = $this->senderRepository->findSenderWithoutFolder();
             $this->setLastFolderUid(0);
         }
-        $this->view->assign('senders', $senders);
+        $this->moduleTemplate->assign('senders', $senders);
 
-        return $this->returnRequest();
+        return $this->moduleTemplate->renderResponse('listByFolder');
     }
 
     /**
@@ -114,10 +134,10 @@ final class MailScannerController extends ActionController
         $senders = $this->senderRepository->findSenderByFolder($imapFolder);
 
         $folder = $this->imapFolderRepository->findFolderWithSender();
-        $this->view->assign('folders', $folder);
-        $this->view->assign('senders', $senders);
+        $this->moduleTemplate->assign('folders', $folder);
+        $this->moduleTemplate->assign('senders', $senders);
 
-        return $this->returnRequest();
+        return $this->moduleTemplate->renderResponse('updateList');
     }
 
     /**
@@ -128,7 +148,7 @@ final class MailScannerController extends ActionController
     public function newAction(): ResponseInterface
     {
         $this->assignImapFolder();
-        return $this->returnRequest();
+        return $this->moduleTemplate->renderResponse('new');
     }
 
     /**
@@ -137,7 +157,7 @@ final class MailScannerController extends ActionController
     private function assignImapFolder(): void
     {
         $imapFolders = $this->imapFolderRepository->findAll();
-        $this->view->assign('imapFolders', $imapFolders);
+        $this->moduleTemplate->assign('imapFolders', $imapFolders);
     }
 
     /**
@@ -173,9 +193,9 @@ final class MailScannerController extends ActionController
      */
     public function editAction(Sender $sender): ResponseInterface
     {
-        $this->view->assign('sender', $sender);
+        $this->moduleTemplate->assign('sender', $sender);
         $this->assignImapFolder();
-        return $this->returnRequest();
+        return $this->moduleTemplate->renderResponse('edit');
     }
 
     /**

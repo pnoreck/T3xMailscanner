@@ -1,10 +1,19 @@
-<f:layout name="Default" />
+<html
+        xmlns:backend="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+        xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        data-namespace-typo3-fluid="true"
+>
 
-<f:section name="main">
-	<h1>Listing for MailScanner</h1>
+<f:layout name="Module"/>
 
-	<f:flashMessages />
-	<f:render partial="MailScanner/ListByFolder" arguments="{folders:folders, showAllLink:false}" />
+<f:section name="Content">
+    <h1>Listing for MailScanner</h1>
 
-	<f:link.action action="new">New Sender</f:link.action>
+    <f:flashMessages/>
+    <f:render partial="MailScanner/ListByFolder" arguments="{folders:folders, showAllLink:false}"/>
+
+    <f:link.action action="new">New Sender</f:link.action>
 </f:section>
+
+</html>
