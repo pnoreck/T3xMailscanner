@@ -11,9 +11,33 @@
         <tr>
             <td>{sender.name}</td>
             <td>{sender.imapFolder.name}</td>
-            <td><f:link.action action="edit" arguments="{sender : sender}">Edit</f:link.action></td>
-            <td><f:link.action action="delete" arguments="{sender : sender}">Delete</f:link.action></td>
-            <td><f:link.action action="update" arguments="{sender : sender, blacklist : 1, wholeDomain : 1}">Blacklist</f:link.action></td>
+            <td><f:link.action
+                    action="edit"
+                    title="Edit"
+                    class="btn btn-default"
+                    arguments="{sender : sender}"><core:icon identifier="actions-open" size="small" /></f:link.action></td>
+            <td><f:link.action
+                    action="delete"
+                    title="Delete"
+                    class="btn btn-default t3js-modal-trigger"
+                    data="{
+                        title: '{f:translate(key: \'modal.delete.title\')}',
+                        bs-content: '{f:translate(key: \'modal.delete.content\')}',
+                        button-ok-text: '{f:translate(key: \'modal.delete.ok\')}',
+                        button-close-text: '{f:translate(key: \'modal.delete.close\')}'
+                        }"
+                    arguments="{sender : sender}"><core:icon identifier="actions-delete" size="small" /></f:link.action></td>
+            <td><f:link.action
+                    action="update"
+                    title="Blacklist"
+                    class="btn btn-default t3js-modal-trigger"
+                    data="{
+                        title: '{f:translate(key: \'modal.blacklist.title\')}',
+                        bs-content: '{f:translate(key: \'modal.blacklist.content\')}',
+                        button-ok-text: '{f:translate(key: \'modal.blacklist.ok\')}',
+                        button-close-text: '{f:translate(key: \'modal.blacklist.close\')}'
+                        }"
+                    arguments="{sender : sender, blacklist : 1, wholeDomain : 1}"><core:icon identifier="actions-file-shield" size="small" /></f:link.action></td>
 
         </tr>
     </f:for>

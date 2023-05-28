@@ -4,8 +4,7 @@
  */
 return [
     'admin_examples' => [
-        'parent'            => 'system',
-        'position'          => ['top'],
+        'parent'            => 'web',
         'access'            => 'user',
         'path'              => '/module/system/mailscanner',
         'labels'            => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf',

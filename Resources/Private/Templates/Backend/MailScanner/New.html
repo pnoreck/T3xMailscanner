@@ -10,12 +10,16 @@
 <f:section name="Content"><h1>Neuer Absender</h1>
 
     <f:flashMessages/>
-
-    <f:render partial="FormErrors" arguments="{object:Sender}"/>
-
-    <f:form action="create" objectName="newSender" object="{newSender}">
-        <f:render partial="Sender/FormFields" arguments="{_all}"/>
-        <f:form.submit value="Create new"/>
-    </f:form>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <f:render partial="FormErrors" arguments="{object:Sender}"/>
+                <f:form action="create" objectName="newSender" object="{newSender}">
+                    <f:render partial="Sender/FormFields" arguments="{_all}"/>
+                    <f:form.submit value="Create new"/>
+                </f:form>
+            </div>
+        </div>
+    </div>
 </f:section>
 </html>

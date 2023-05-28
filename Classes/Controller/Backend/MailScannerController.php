@@ -53,23 +53,15 @@ final class MailScannerController extends ActionController
      */
     public function initializeAction(): void
     {
-        $this->moduleData = $this->request->getAttribute('moduleData');
+        $this->moduleData     = $this->request->getAttribute('moduleData');
         $this->moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        $this->moduleTemplate->setTitle(LocalizationUtility::translate('LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:mlang_tabs_tab'));
+        $this->moduleTemplate->setTitle(
+            LocalizationUtility::translate(
+                'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:mlang_tabs_tab'
+            )
+        );
         $this->moduleTemplate->setFlashMessageQueue($this->getFlashMessageQueue());
     }
-
-    /**
-     * Assign default variables to ModuleTemplate view
-     */
-    protected function initializeView(): void
-    {
-        $this->moduleTemplate->assignMultiple([
-            'dateFormat' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'],
-            'timeFormat' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
-        ]);
-    }
-
 
     /**
      * action list
@@ -232,12 +224,7 @@ final class MailScannerController extends ActionController
 
         $this->addFlashMessage('Absender wurde aktualisiert', '', ContextualFeedbackSeverity::OK);
         $this->senderRepository->update($sender);
-        $lastFolderUid = $this->getLastFolderUid();
-        if ($lastFolderUid > 0) {
-            return $this->redirect('listByFolder', null, null, ['imapFolder' => $lastFolderUid]);
-        } else {
-            return $this->redirect('list');
-        }
+        return $this->redirect(actionName: 'listByFolder', arguments: ["imapFolder" => $this->getLastFolderUid()]);
     }
 
     /**
@@ -265,7 +252,18 @@ final class MailScannerController extends ActionController
     {
         $this->addFlashMessage('Der Absender wurde gelöscht', '', ContextualFeedbackSeverity::NOTICE);
         $this->senderRepository->remove($sender);
-        return $this->redirect('list');
+        return $this->redirect(actionName: 'listByFolder', arguments: ["imapFolder" => $this->getLastFolderUid()]);
+    }
+
+    /**
+     * Assign default variables to ModuleTemplate view
+     */
+    protected function initializeView(): void
+    {
+        $this->moduleTemplate->assignMultiple([
+            'dateFormat' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'],
+            'timeFormat' => $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
+        ]);
     }
 
 }

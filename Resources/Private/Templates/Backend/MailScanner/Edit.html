@@ -11,32 +11,31 @@
     <h1>Edit Sender</h1>
 
     <f:flashMessages/>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <f:render partial="FormErrors" arguments="{object:Sender}"/>
+                <f:form action="update" objectName="sender" object="{sender}" method="post">
+                    <f:render partial="Sender/FormFields" arguments="{_all}"/>
 
-    <f:render partial="FormErrors" arguments="{object:Sender}"/>
+                    <div class="form-group">
+                        <label for="blacklist">
+                            <f:translate key="tx_t3xmailscanner_domain_model_sender.blacklist"/>
+                        </label>
+                        <f:form.checkbox name="blacklist" id="blacklist" value="true"/>
+                    </div>
 
-    <f:form action="update" objectName="sender" object="{sender}" method="post">
-        <f:render partial="Sender/FormFields" arguments="{_all}"/>
-
-        <div class="form-group">
-
-            <label for="blacklist">
-                <f:translate key="tx_t3xmailscanner_domain_model_sender.blacklist"/>
-            </label>
-
-            <f:form.checkbox name="blacklist" id="blacklist" value="true" />
+                    <div class="form-group">
+                        <label for="wholeDomain">
+                            <f:translate key="tx_t3xmailscanner_domain_model_sender.whole_domain"/>
+                        </label>
+                        <f:form.checkbox name="wholeDomain" id="wholeDomain" value="true"/>
+                    </div>
+                    <f:form.submit value="Save" class="btn btn-default"/>
+                </f:form>
+            </div>
         </div>
-
-       <div class="form-group">
-
-            <label for="wholeDomain">
-                <f:translate key="tx_t3xmailscanner_domain_model_sender.whole_domain"/>
-            </label>
-
-            <f:form.checkbox name="wholeDomain" id="wholeDomain" value="true" />
-        </div>
-
-        <f:form.submit value="Save" class="btn btn-default"/>
-    </f:form>
+    </div>
 
 </f:section>
 </html>

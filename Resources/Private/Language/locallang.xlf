@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-20T19:47:06Z" product-name="mailscanner">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-20T19:47:06Z" product-name="t3x_mailscanner">
 		<header/>
 		<body>
 			<trans-unit id="tx_t3xmailscanner_domain_model_mailscanner">
@@ -36,6 +36,33 @@
 			<trans-unit id="tx_t3xmailscanner_domain_model_sender.whole_domain">
 				<source>whole domain</source>
 			</trans-unit>
+
+            <trans-unit id="modal.delete.title">
+                <source>Delete sender</source>
+            </trans-unit>
+            <trans-unit id="modal.delete.content">
+                <source>Do you really want to delete this sender?</source>
+            </trans-unit>
+            <trans-unit id="modal.delete.ok">
+                <source>Yes</source>
+            </trans-unit>
+            <trans-unit id="modal.delete.close">
+                <source>Cancel</source>
+            </trans-unit>
+
+            <trans-unit id="modal.blacklist.title">
+                <source>Blacklist sender</source>
+            </trans-unit>
+            <trans-unit id="modal.blacklist.content">
+                <source>Do you really want to block this sender?</source>
+            </trans-unit>
+            <trans-unit id="modal.blacklist.ok">
+                <source>Yes</source>
+            </trans-unit>
+            <trans-unit id="modal.blacklist.close">
+                <source>Cancel</source>
+            </trans-unit>
+
 		</body>
 	</file>
 </xliff>
