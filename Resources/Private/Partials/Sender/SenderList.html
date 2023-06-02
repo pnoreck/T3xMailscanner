@@ -22,7 +22,7 @@
                     class="btn btn-default t3js-modal-trigger"
                     data="{
                         title: '{f:translate(key: \'modal.delete.title\')}',
-                        bs-content: '{f:translate(key: \'modal.delete.content\')}',
+                        bs-content: '{f:translate(key: \'modal.delete.content\', arguments: {0: sender.name})}',
                         button-ok-text: '{f:translate(key: \'modal.delete.ok\')}',
                         button-close-text: '{f:translate(key: \'modal.delete.close\')}'
                         }"
@@ -33,7 +33,7 @@
                     class="btn btn-default t3js-modal-trigger"
                     data="{
                         title: '{f:translate(key: \'modal.blacklist.title\')}',
-                        bs-content: '{f:translate(key: \'modal.blacklist.content\')}',
+                        bs-content: '{f:translate(key: \'modal.blacklist.content\', arguments: {0: sender.name})}',
                         button-ok-text: '{f:translate(key: \'modal.blacklist.ok\')}',
                         button-close-text: '{f:translate(key: \'modal.blacklist.close\')}'
                         }"

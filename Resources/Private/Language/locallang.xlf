@@ -41,7 +41,7 @@
                 <source>Delete sender</source>
             </trans-unit>
             <trans-unit id="modal.delete.content">
-                <source>Do you really want to delete this sender?</source>
+                <source>Do you really want to delete the sender %s?</source>
             </trans-unit>
             <trans-unit id="modal.delete.ok">
                 <source>Yes</source>
@@ -54,7 +54,7 @@
                 <source>Blacklist sender</source>
             </trans-unit>
             <trans-unit id="modal.blacklist.content">
-                <source>Do you really want to block this sender?</source>
+                <source>Do you really want to block the sender %s?</source>
             </trans-unit>
             <trans-unit id="modal.blacklist.ok">
                 <source>Yes</source>
