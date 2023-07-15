@@ -3,7 +3,7 @@
  * Definitions for modules provided by EXT:examples
  */
 return [
-    'admin_examples' => [
+    'mailscanner' => [
         'parent'            => 'web',
         'access'            => 'user',
         'path'              => '/module/system/mailscanner',
