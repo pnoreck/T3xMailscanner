@@ -58,17 +58,8 @@ CREATE TABLE `tx_t3xmailscanner_domain_model_mail` (
 --
 
 CREATE TABLE `tx_t3xmailscanner_domain_model_sender` (
-    `uid`         int          NOT NULL,
-    `pid`         int          NOT NULL DEFAULT '0',
     `name`        varchar(255) NOT NULL DEFAULT '',
     `imap_folder` int UNSIGNED DEFAULT '0',
-    `tstamp`      int UNSIGNED NOT NULL DEFAULT '0',
-    `crdate`      int UNSIGNED NOT NULL DEFAULT '0',
-    `cruser_id`   int UNSIGNED NOT NULL DEFAULT '0',
-    `deleted`     smallint UNSIGNED NOT NULL DEFAULT '0',
-    `hidden`      smallint UNSIGNED NOT NULL DEFAULT '0',
-    `starttime`   int UNSIGNED NOT NULL DEFAULT '0',
-    `endtime`     int UNSIGNED NOT NULL DEFAULT '0',
 
     KEY           `name`(`name`, `deleted`, `hidden`) USING BTREE
 );
@@ -80,17 +71,7 @@ CREATE TABLE `tx_t3xmailscanner_domain_model_sender` (
 --
 
 CREATE TABLE `tx_t3xmailscanner_domain_model_whitelist` (
-    `uid`       int          NOT NULL,
-    `pid`       int          NOT NULL DEFAULT '0',
     `name`      varchar(255) NOT NULL DEFAULT '',
-    `tstamp`    int UNSIGNED NOT NULL DEFAULT '0',
-    `crdate`    int UNSIGNED NOT NULL DEFAULT '0',
-    `cruser_id` int UNSIGNED NOT NULL DEFAULT '0',
-    `deleted`   tinyint UNSIGNED NOT NULL DEFAULT '0',
-    `hidden`    tinyint UNSIGNED NOT NULL DEFAULT '0',
-    `starttime` int UNSIGNED NOT NULL DEFAULT '0',
-    `endtime`   int UNSIGNED NOT NULL DEFAULT '0',
-
     KEY         `name`(`name`, `deleted`, `hidden`) USING BTREE
 );
 

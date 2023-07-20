@@ -6,7 +6,6 @@ return array(
         'label_alt'        => 'domain',
         'tstamp'           => 'tstamp',
         'crdate'           => 'crdate',
-        'cruser_id'        => 'cruser_id',
         'delete'           => 'deleted',
         'enablecolumns'    => array(
             'disabled' => 'hidden',
@@ -24,15 +23,7 @@ return array(
             'exclude' => true,
             'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
             'config'  => [
-                'type'       => 'check',
-                'renderType' => 'checkboxToggle',
-                'items'      => [
-                    [
-                        0                    => '',
-                        1                    => '',
-                        'invertStateDisplay' => true
-                    ]
-                ],
+                'type' => 'check',
             ]
         ],
         'mail'            => array(

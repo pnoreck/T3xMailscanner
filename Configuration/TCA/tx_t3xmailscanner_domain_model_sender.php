@@ -1,11 +1,10 @@
 <?php
 return array(
-    'ctrl'      => array(
+    'ctrl'     => array(
         'title'            => 'LLL:EXT:mailscanner/Resources/Private/Language/locallang_db.xlf:tx_t3xmailscanner_domain_model_sender',
         'label'            => 'name',
         'tstamp'           => 'tstamp',
         'crdate'           => 'crdate',
-        'cruser_id'        => 'cruser_id',
         'delete'           => 'deleted',
         'enablecolumns'    => array(
             'disabled' => 'hidden',
@@ -15,30 +14,19 @@ return array(
             'default' => 'form-email',
         ],
     ),
-    'interface' => array(
-        'showRecordFieldList' => 'hidden, name, imap_folder',
-    ),
-    'types'     => array(
+    'types'    => array(
         '1' => array('showitem' => 'hidden;;1, name, imap_folder, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
-    'palettes'  => array(
+    'palettes' => array(
         '1' => array('showitem' => ''),
     ),
-    'columns'   => array(
+    'columns'  => array(
 
         'hidden' => [
             'exclude' => true,
             'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
             'config'  => [
-                'type'       => 'check',
-                'renderType' => 'checkboxToggle',
-                'items'      => [
-                    [
-                        0                    => '',
-                        1                    => '',
-                        'invertStateDisplay' => true
-                    ]
-                ],
+                'type' => 'check',
             ]
         ],
 
